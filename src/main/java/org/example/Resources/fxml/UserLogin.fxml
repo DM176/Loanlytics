@@ -21,7 +21,7 @@
 	stylesheets="@../stylesheets/HeadScreen.css"
 	xmlns="http://javafx.com/javafx/11.0.1"
 	xmlns:fx="http://javafx.com/fxml/1"
-	fx:controller="main.java.org.example.controllers.LoginPanelController">
+	fx:controller="main.java.org.example.controllers.LoginScreenController">
 	<children>
 		<Pane layoutX="106.0" prefHeight="603.0" prefWidth="263.0"
 			style="-fx-background-color: #ff3737;">

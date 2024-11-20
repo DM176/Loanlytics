@@ -13,7 +13,7 @@
 <?import javafx.scene.paint.Stop?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="643.0" prefWidth="1110.0" styleClass="root" stylesheets="@../stylesheets/HeadScreen.css" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="main.java.org.example.controllers.HomeScreenController">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="643.0" prefWidth="1110.0" styleClass="root" stylesheets="@../stylesheets/HeadScreen.css" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="main.java.org.example.controllers.HeadScreenController">
 	<children>
 		<Pane layoutX="128.0" prefHeight="643.0" prefWidth="338.0" styleClass="pane" stylesheets="@../stylesheets/HeadScreen.css">
 			<children>
@@ -40,7 +40,7 @@
 						<Glow level="0.71" />
 					</effect>
 				</ImageView>
-				<Label accessibleRole="BUTTON" blendMode="DARKEN" layoutX="22.0" layoutY="540.0" onMouseClicked="#showRegisterationScreen" prefHeight="40.0" prefWidth="172.0" styleClass="registertxt" stylesheets="@../stylesheets/HeadScreen.css" text="Register Here" textFill="#313131">
+				<Label accessibleRole="BUTTON" blendMode="DARKEN" layoutX="22.0" layoutY="540.0" onMouseClicked="#loadRegistrationScreen" prefHeight="40.0" prefWidth="172.0" styleClass="registertxt" stylesheets="@../stylesheets/HeadScreen.css" text="Register Here" textFill="#313131">
 					<font>
 						<Font name="Ubuntu Condensed" size="34.0" />
 					</font>
@@ -53,7 +53,7 @@
 				</Label>
 			</children>
 		</Pane>
-		<ImageView accessibleRole="BUTTON" blendMode="SCREEN" depthTest="ENABLE" fitHeight="133.0" fitWidth="141.0" layoutX="605.0" layoutY="265.0" onMouseClicked="#showUserLoginScreen" pickOnBounds="true" preserveRatio="true" styleClass="imgbtn">
+		<ImageView accessibleRole="BUTTON" blendMode="SCREEN" depthTest="ENABLE" fitHeight="133.0" fitWidth="141.0" layoutX="605.0" layoutY="265.0" onMouseClicked="#loadUserLoginScreen" pickOnBounds="true" preserveRatio="true" styleClass="imgbtn">
 			<image>
 				<Image url="@../Images/UserLogo.png" />
 			</image>
@@ -68,7 +68,7 @@
 				<Cursor fx:constant="OPEN_HAND" />
 			</cursor>
 		</ImageView>
-		<ImageView accessibleRole="BUTTON" blendMode="SCREEN" depthTest="ENABLE" fitHeight="150.0" fitWidth="133.0" layoutX="882.0" layoutY="265.0" onMouseClicked="#showAdminLoginScreen" pickOnBounds="true" preserveRatio="true" styleClass="imgbtn">
+		<ImageView accessibleRole="BUTTON" blendMode="SCREEN" depthTest="ENABLE" fitHeight="150.0" fitWidth="133.0" layoutX="882.0" layoutY="265.0" onMouseClicked="#loadAdminLoginScreen" pickOnBounds="true" preserveRatio="true" styleClass="imgbtn">
 			<image>
 				<Image url="@../Images/AdminLogo.png" />
 			</image>
@@ -99,12 +99,12 @@
 				</LinearGradient>
 			</textFill>
 		</Label>
-		<Button layoutX="884.0" layoutY="411.0" mnemonicParsing="false" onMouseClicked="#showAdminLoginScreen" styleClass="btn" stylesheets="@../stylesheets/HeadScreen.css" text="Admin Login">
+		<Button layoutX="884.0" layoutY="411.0" mnemonicParsing="false" onMouseClicked="#loadAdminLoginScreen" styleClass="btn" stylesheets="@../stylesheets/HeadScreen.css" text="Admin Login">
 			<font>
 				<Font name="Ubuntu Medium" size="18.0" />
 			</font>
 		</Button>
-		<Button layoutX="607.0" layoutY="411.0" mnemonicParsing="false" onMouseClicked="#showUserLoginScreen" prefHeight="33.0" prefWidth="129.0" styleClass="btn" stylesheets="@../stylesheets/HeadScreen.css" text="User Login">
+		<Button layoutX="607.0" layoutY="411.0" mnemonicParsing="false" onMouseClicked="#loadUserLoginScreen" prefHeight="33.0" prefWidth="129.0" styleClass="btn" stylesheets="@../stylesheets/HeadScreen.css" text="User Login">
 			<font>
 				<Font name="Ubuntu Medium" size="18.0" />
 			</font>

@@ -1026,6 +1026,15 @@
 															glyphName="TIMES" size="18" />
 													</graphic>
 												</Button>
+												<Button graphicTextGap="15.0" mnemonicParsing="false"
+														onAction="#handlePredictLoan" prefHeight="150.0"
+														prefWidth="307.0" styleClass="btn" text="Predict Loan"
+														textFill="WHITE" GridPane.columnIndex="3">
+													<graphic>
+														<FontAwesomeIconView fill="WHITE"
+																			 glyphName="TIMES" size="18" />
+													</graphic>
+												</Button>
 											</children>
 										</GridPane>
 									</children>
