@@ -15,6 +15,15 @@ public class User {
 	private int securityPossesed;
 	private double creditScore;
 	private double income;
+	private double homeOwnership;
+	private double empLength;
+	private double loanIntent;
+	private double percentIncome;
+	private double defaultOnFile;
+	private double creditHistoryLength;
+	private double loanGrade;
+
+
 
 	public double getIncome() {
 		return income;
