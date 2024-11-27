@@ -2,11 +2,13 @@ package main.java.org.example.controllers;
 
 import java.sql.SQLException;
 
+import main.java.org.example.AIModel.PredictionService;
 import main.java.org.example.entities.Loan;
 import main.java.org.example.entities.User;
 import main.java.org.example.managers.LoanManager;
 
 public class LoanController {
+
 	private LoanController() {
 	}
 

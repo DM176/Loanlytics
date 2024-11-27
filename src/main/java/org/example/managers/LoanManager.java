@@ -4,6 +4,8 @@ import java.sql.Date;
 import java.sql.SQLException;
 import java.sql.Time;
 
+import main.java.org.example.AIModel.LoanPredictionRequest;
+import main.java.org.example.AIModel.PredictionService;
 import main.java.org.example.constants.LoanStatus;
 import main.java.org.example.dao.LoanDao;
 import main.java.org.example.entities.Loan;
@@ -11,9 +13,10 @@ import main.java.org.example.entities.User;
 import main.java.org.example.entities.UserLoan;
 
 public class LoanManager {
+
 	private LoanManager() {
 	}
-
+	private final PredictionService predictionService = PredictionService.getInstance();
 	private static LoanManager instance = new LoanManager();
 	private static LoanDao dao = new LoanDao();
 
@@ -67,9 +70,17 @@ public class LoanManager {
 		dao.updateLoanStatus(user, loan, date, time, LoanStatus.REJECTED);
 	}
 	public void predictLoan(User user, Loan loan) throws SQLException {
-		Date date=new Date(System.currentTimeMillis());
-		Time time=new Time(System.currentTimeMillis());
-//		dao.updateLoanStatus(user, loan, date, time, LoanStatus.REJECTED);
+		LoanPredictionRequest request = new LoanPredictionRequest();
+		request.setAge(35);
+		request.setIncome(50000);
+		request.setHomeOwnership("OWN");
+		request.setEmpLength(10);
+		request.setLoanIntent("PERSONAL");
+		request.setLoanGrade("A");
+		request.setPercentIncome(20);
+		request.setDefaultOnFile("N");
+		request.setCreditHistoryLength(5);
+		predictionService.makePrediction(request);
 	}
 
 }
