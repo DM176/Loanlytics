@@ -141,7 +141,7 @@
 					<items>
 						<MenuItem fx:id="male" mnemonicParsing="false" onAction="#setMenuButtonText" styleClass="menuitem" text="Male" />
 						<MenuItem fx:id="female" mnemonicParsing="false" onAction="#setMenuButtonText" styleClass="menuitem" text="Female" />
-						<MenuItem fx:id="transgender" mnemonicParsing="false" onAction="#setMenuButtonText" styleClass="menuitem" text="Transgendner" />
+						<MenuItem fx:id="other" mnemonicParsing="false" onAction="#setMenuButtonText" styleClass="menuitem" text="" />
 					</items>
 					<cursor>
 						<Cursor fx:constant="OPEN_HAND" />

@@ -2,19 +2,18 @@ package main.java.org.example.controllers;
 
 import java.sql.SQLException;
 
-import main.java.org.example.AIModel.PredictionService;
 import main.java.org.example.entities.Loan;
 import main.java.org.example.entities.User;
 import main.java.org.example.managers.LoanManager;
 
-public class LoanController {
+public class LoanProcessor {
 
-	private LoanController() {
+	private LoanProcessor() {
 	}
 
-	public static LoanController instance = new LoanController();
+	public static LoanProcessor instance = new LoanProcessor();
 
-	public static LoanController getInstance() {
+	public static LoanProcessor getInstance() {
 		return instance;
 	}
 

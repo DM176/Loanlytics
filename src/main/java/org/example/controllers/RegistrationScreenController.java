@@ -4,7 +4,7 @@ import java.sql.SQLException;
 import java.sql.SQLIntegrityConstraintViolationException;
 import java.util.Optional;
 
-import main.java.org.example.View;
+import main.java.org.example.Screens;
 import main.java.org.example.constants.Gender;
 import main.java.org.example.entities.User;
 import main.java.org.example.managers.UserManager;
@@ -43,7 +43,7 @@ public class RegistrationScreenController {
 	@FXML
 	public MenuItem female;
 	@FXML
-	public MenuItem transgender;
+	public MenuItem other;
 	@FXML
 	public CheckBox personal;
 	@FXML
@@ -265,7 +265,7 @@ public class RegistrationScreenController {
 		Optional<ButtonType> result = alert.showAndWait();
 
 		if (result.isPresent() && result.get() == ButtonType.OK) {
-			new View().loadUserLoginScreen();
+			new Screens().loadUserLoginScreen();
 		}
 	}
 
@@ -282,6 +282,6 @@ public class RegistrationScreenController {
 
 	@FXML
 	public void back() throws Exception {
-		new View().back();
+		new Screens().back();
 	}
 }

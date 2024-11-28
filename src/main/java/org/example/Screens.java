@@ -3,8 +3,8 @@ package main.java.org.example;
 
 import java.util.Stack;
 
-import main.java.org.example.controllers.AdminScreenController;
-import main.java.org.example.controllers.UserScreenController;
+import main.java.org.example.controllers.AdminPanelController;
+import main.java.org.example.controllers.UserPanelController;
 
 import javafx.application.Application;
 import javafx.scene.control.ScrollPane;
@@ -16,7 +16,7 @@ import animatefx.animation.FadeInLeft;
 import animatefx.animation.SlideInLeft;
 import animatefx.animation.ZoomIn;
 
-public class View extends Application{
+public class Screens extends Application{
 	/*public static void browseLoans(User user, Loan[] loans) {
 		System.out.println(user.toString() + " is browsing loans...");
 		for (Loan loan : loans) {
@@ -105,7 +105,7 @@ public class View extends Application{
 	}
 
 	public static void setPrimaryStage(Stage primaryStage) {
-		View.primaryStage = primaryStage;
+		Screens.primaryStage = primaryStage;
 	}
 
 	public static void launchApplication(String[] args) {
@@ -139,13 +139,13 @@ public class View extends Application{
 	}
 
 	public void loadUserScreen() throws Exception {
-		String title = "Welcome " + UserScreenController.getUser().getFirstName();
+		String title = "Welcome " + UserPanelController.getUser().getFirstName();
 		loadScreen("Resources/fxml/UserScreen.fxml", "Resources/stylesheets/UserScreen.css",
 				title, "UserScreen", new ZoomIn());
 	}
 
 	public void loadAdminScreen() throws Exception {
-		String title = "Welcome " + AdminScreenController.getAdmin().getFirstName();
+		String title = "Welcome " + AdminPanelController.getAdmin().getFirstName();
 		loadScreen("Resources/fxml/AdminScreen.fxml", "Resources/stylesheets/AdminScreen.css",
 				title, "AdminScreen", new ZoomIn());
 	}

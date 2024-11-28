@@ -13,7 +13,7 @@
 <?import javafx.scene.paint.Stop?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="643.0" prefWidth="1110.0" styleClass="root" stylesheets="@../stylesheets/HeadScreen.css" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="main.java.org.example.controllers.HeadScreenController">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="643.0" prefWidth="1110.0" styleClass="root" stylesheets="@../stylesheets/HeadScreen.css" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="main.java.org.example.controllers.HomePanelController">
 	<children>
 		<Pane layoutX="128.0" prefHeight="643.0" prefWidth="338.0" styleClass="pane" stylesheets="@../stylesheets/HeadScreen.css">
 			<children>

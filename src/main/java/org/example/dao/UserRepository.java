@@ -2,19 +2,19 @@ package main.java.org.example.dao;
 
 import java.sql.SQLException;
 
-import main.java.org.example.DataStore;
+import main.java.org.example.DatabaseController;
 import main.java.org.example.entities.User;
 
-public class UserDao {
+public class UserRepository {
 	public User[] getUsers() throws SQLException{
-		return DataStore.getUsers();
+		return DatabaseController.getUsers();
 	}
 
 	public void addUser(User user) throws SQLException {
-		DataStore.addUser(user);
+		DatabaseController.addUser(user);
 	}
 	
 	public User getUser(String email) throws SQLException {
-		return DataStore.getUser(email);
+		return DatabaseController.getUser(email);
 	}
 }

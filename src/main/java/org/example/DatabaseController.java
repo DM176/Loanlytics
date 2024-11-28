@@ -1,10 +1,10 @@
 package main.java.org.example;
 
 import main.java.org.example.constants.UserType;
-import main.java.org.example.entities.Admin;
+import main.java.org.example.entities.AdminDTO;
 import main.java.org.example.entities.Loan;
 import main.java.org.example.entities.User;
-import main.java.org.example.entities.UserLoan;
+import main.java.org.example.entities.UserLoanDTO;
 import main.java.org.example.managers.LoanManager;
 import main.java.org.example.managers.UserManager;
 
@@ -18,7 +18,7 @@ import java.sql.Statement;
 import java.sql.Time;
 import java.util.ArrayList;
 
-public class DataStore {
+public class DatabaseController {
 	private static Connection connect;
 
 	public static void addUserLoan(User user, Loan loan, double principalTaken, Date date, Time time, String status)
@@ -50,7 +50,7 @@ public class DataStore {
 		statement.setDouble(8, user.getCreditScore());
 		statement.setDouble(10, user.getIncome());
 
-		if (user instanceof Admin) {
+		if (user instanceof AdminDTO) {
 			statement.setString(9, UserType.ADMIN);
 		} else {
 			statement.setString(9, UserType.GENERAL);
@@ -138,16 +138,16 @@ public class DataStore {
 		return loans;
 	}
 
-	public static UserLoan[] getUserLoans() throws SQLException {
-		ArrayList<UserLoan> list = new ArrayList<>();
-		UserLoan[] userLoan;
+	public static UserLoanDTO[] getUserLoans() throws SQLException {
+		ArrayList<UserLoanDTO> list = new ArrayList<>();
+		UserLoanDTO[] userLoanDTO;
 		String query = "SELECT * FROM UserLoan";
 
 		Statement statement = connect.createStatement();
 		ResultSet result = statement.executeQuery(query);
 
 		while (result.next()) {
-			UserLoan userloan = new UserLoan();
+			UserLoanDTO userloan = new UserLoanDTO();
 
 			userloan.setUserEmail(result.getString(1));
 			userloan.setLoanId(result.getInt(2));
@@ -158,8 +158,8 @@ public class DataStore {
 
 			list.add(userloan);
 		}
-		userLoan = list.toArray(new UserLoan[list.size()]);
-		return userLoan;
+		userLoanDTO = list.toArray(new UserLoanDTO[list.size()]);
+		return userLoanDTO;
 	}
 
 	public static User getUser(String email) throws SQLException {

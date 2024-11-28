@@ -7,10 +7,10 @@ import java.sql.Time;
 import main.java.org.example.AIModel.LoanPredictionRequest;
 import main.java.org.example.AIModel.PredictionService;
 import main.java.org.example.constants.LoanStatus;
-import main.java.org.example.dao.LoanDao;
+import main.java.org.example.dao.LoanRepository;
 import main.java.org.example.entities.Loan;
 import main.java.org.example.entities.User;
-import main.java.org.example.entities.UserLoan;
+import main.java.org.example.entities.UserLoanDTO;
 
 public class LoanManager {
 
@@ -18,7 +18,7 @@ public class LoanManager {
 	}
 	private final PredictionService predictionService = PredictionService.getInstance();
 	private static LoanManager instance = new LoanManager();
-	private static LoanDao dao = new LoanDao();
+	private static LoanRepository dao = new LoanRepository();
 
 	public static LoanManager getInstance() {
 		return instance;
@@ -48,7 +48,7 @@ public class LoanManager {
 		return dao.getLoan(id);
 	}
 	
-	public UserLoan[] getUserLoans() throws SQLException {
+	public UserLoanDTO[] getUserLoans() throws SQLException {
 		return dao.getUserLoans();
 	}
 	

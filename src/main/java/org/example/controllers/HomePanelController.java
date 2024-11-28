@@ -1,22 +1,22 @@
 package main.java.org.example.controllers;
 
-import main.java.org.example.View;
+import main.java.org.example.Screens;
 import javafx.fxml.FXML;
 
-public class HeadScreenController {
+public class HomePanelController {
 	
 	@FXML
 	public void loadUserLoginScreen() throws Exception {
-		new View().loadUserLoginScreen();
+		new Screens().loadUserLoginScreen();
 	}
 	
 	@FXML
 	public void loadAdminLoginScreen() throws Exception {
-		new View().loadAdminLoginScreen();
+		new Screens().loadAdminLoginScreen();
 	}
 	
 	@FXML
 	public void loadRegistrationScreen() throws Exception {
-		new View().loadRegistrationScreen();
+		new Screens().loadRegistrationScreen();
 	}
 }

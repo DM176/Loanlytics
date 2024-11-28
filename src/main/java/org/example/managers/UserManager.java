@@ -2,8 +2,8 @@ package main.java.org.example.managers;
 
 import java.sql.SQLException;
 
-import main.java.org.example.dao.UserDao;
-import main.java.org.example.entities.Admin;
+import main.java.org.example.dao.UserRepository;
+import main.java.org.example.entities.AdminDTO;
 import main.java.org.example.entities.User;
 
 public class UserManager {
@@ -11,7 +11,7 @@ public class UserManager {
 	}
 
 	public static UserManager instance = new UserManager();
-	public static UserDao dao = new UserDao();
+	public static UserRepository dao = new UserRepository();
 
 	public static UserManager getInstance() {
 		return instance;
@@ -34,21 +34,21 @@ public class UserManager {
 		return user;
 	}
 
-	public Admin createAdmin(String firstName, String lastName, int age, String email, String password, String gender,
-			int securityPossesed, double creditScore, double income) {
-		Admin admin = new Admin();
+	public AdminDTO createAdmin(String firstName, String lastName, int age, String email, String password, String gender,
+								int securityPossesed, double creditScore, double income) {
+		AdminDTO adminDTO = new AdminDTO();
 
-		admin.setFirstName(firstName);
-		admin.setLastName(lastName);
-		admin.setAge(age);
-		admin.setEmail(email);
-		admin.setPassword(password);
-		admin.setGender(gender);
-		admin.setSecurityPossesed(securityPossesed);
-		admin.setCreditScore(creditScore);
-		admin.setIncome(income);
+		adminDTO.setFirstName(firstName);
+		adminDTO.setLastName(lastName);
+		adminDTO.setAge(age);
+		adminDTO.setEmail(email);
+		adminDTO.setPassword(password);
+		adminDTO.setGender(gender);
+		adminDTO.setSecurityPossesed(securityPossesed);
+		adminDTO.setCreditScore(creditScore);
+		adminDTO.setIncome(income);
 
-		return admin;
+		return adminDTO;
 	}
 
 	public void addUser(User user) throws SQLException {

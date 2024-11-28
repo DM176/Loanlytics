@@ -2,7 +2,7 @@ package main.java.org.example.entities;
 
 import java.sql.SQLException;
 
-import main.java.org.example.controllers.LoanController;
+import main.java.org.example.controllers.LoanProcessor;
 
 public class User {
 
@@ -32,7 +32,7 @@ public class User {
 	}
 
 	public void applyLoan(Loan loan, double principleAmount) throws SQLException {
-		LoanController.getInstance().applyLoan(this, loan, principleAmount);
+		LoanProcessor.getInstance().applyLoan(this, loan, principleAmount);
 	}
 
 	public int getAge() {

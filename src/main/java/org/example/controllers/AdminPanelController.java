@@ -6,14 +6,14 @@ import java.sql.SQLIntegrityConstraintViolationException;
 import java.util.Optional;
 import java.util.ResourceBundle;
 
-import main.java.org.example.View;
+import main.java.org.example.Screens;
 import main.java.org.example.constants.LoanStatus;
 import main.java.org.example.constants.LoanType;
-import main.java.org.example.entities.Admin;
+import main.java.org.example.entities.AdminDTO;
 import main.java.org.example.entities.Loan;
-import main.java.org.example.entities.LoanModel;
+import main.java.org.example.entities.LoanModelDTO;
 import main.java.org.example.entities.User;
-import main.java.org.example.entities.UserLoan;
+import main.java.org.example.entities.UserLoanDTO;
 import main.java.org.example.entities.UserModel;
 import main.java.org.example.managers.LoanManager;
 import main.java.org.example.managers.UserManager;
@@ -40,9 +40,9 @@ import javafx.scene.paint.Color;
 import javafx.scene.control.Alert.AlertType;
 import javafx.scene.control.Button;
 
-public class AdminScreenController implements Initializable {
+public class AdminPanelController implements Initializable {
 
-	public static Admin admin = new Admin();
+	public static AdminDTO adminDTO = new AdminDTO();
 	@FXML
 	public Button btnLoansApplied;
 	@FXML
@@ -88,39 +88,39 @@ public class AdminScreenController implements Initializable {
 	@FXML
 	public GridPane AuserInfoTable;
 	@FXML
-	public TableView<LoanModel> homeLoansTable;
+	public TableView<LoanModelDTO> homeLoansTable;
 	@FXML
-	public TableView<LoanModel> educationLoansTable;
+	public TableView<LoanModelDTO> educationLoansTable;
 	@FXML
-	public TableView<LoanModel> carLoansTable;
+	public TableView<LoanModelDTO> carLoansTable;
 	@FXML
 	public TableView<UserModel> AuserInfoTableView;
 	@FXML
-	public TableView<LoanModel> AloanInfoTableView;
+	public TableView<LoanModelDTO> AloanInfoTableView;
 	@FXML
 	public TableView<UserModel> SuserInfoTableView;
 	@FXML
-	public TableView<LoanModel> SloanInfoTableView;
+	public TableView<LoanModelDTO> SloanInfoTableView;
 	@FXML
 	public TableView<UserModel> RuserInfoTableView;
 	@FXML
-	public TableView<LoanModel> RloanInfoTableView;
+	public TableView<LoanModelDTO> RloanInfoTableView;
 	@FXML
-	public TableColumn<LoanModel, Integer> AloanUniqueId;
+	public TableColumn<LoanModelDTO, Integer> AloanUniqueId;
 	@FXML
-	public TableColumn<LoanModel, String> Asource;
+	public TableColumn<LoanModelDTO, String> Asource;
 	@FXML
-	public TableColumn<LoanModel, String> AamountRange;
+	public TableColumn<LoanModelDTO, String> AamountRange;
 	@FXML
-	public TableColumn<LoanModel, String> AsecurityDemand;
+	public TableColumn<LoanModelDTO, String> AsecurityDemand;
 	@FXML
-	public TableColumn<LoanModel, Double> AinterestRate;
+	public TableColumn<LoanModelDTO, Double> AinterestRate;
 	@FXML
-	public TableColumn<LoanModel, Double> AminimumIncome;
+	public TableColumn<LoanModelDTO, Double> AminimumIncome;
 	@FXML
-	public TableColumn<LoanModel, String> AageRange;
+	public TableColumn<LoanModelDTO, String> AageRange;
 	@FXML
-	public TableColumn<LoanModel, String> Atenure;
+	public TableColumn<LoanModelDTO, String> Atenure;
 	@FXML
 	public TableColumn<UserModel, String> AfirstName;
 	@FXML
@@ -138,21 +138,21 @@ public class AdminScreenController implements Initializable {
 	@FXML
 	public TableColumn<UserModel, String> AsecurityPossesed;
 	@FXML
-	public TableColumn<LoanModel, Integer> SloanUniqueId;
+	public TableColumn<LoanModelDTO, Integer> SloanUniqueId;
 	@FXML
-	public TableColumn<LoanModel, String> Ssource;
+	public TableColumn<LoanModelDTO, String> Ssource;
 	@FXML
-	public TableColumn<LoanModel, String> SamountRange;
+	public TableColumn<LoanModelDTO, String> SamountRange;
 	@FXML
-	public TableColumn<LoanModel, String> SsecurityDemand;
+	public TableColumn<LoanModelDTO, String> SsecurityDemand;
 	@FXML
-	public TableColumn<LoanModel, Double> SinterestRate;
+	public TableColumn<LoanModelDTO, Double> SinterestRate;
 	@FXML
-	public TableColumn<LoanModel, Double> SminimumIncome;
+	public TableColumn<LoanModelDTO, Double> SminimumIncome;
 	@FXML
-	public TableColumn<LoanModel, String> SageRange;
+	public TableColumn<LoanModelDTO, String> SageRange;
 	@FXML
-	public TableColumn<LoanModel, String> Stenure;
+	public TableColumn<LoanModelDTO, String> Stenure;
 	@FXML
 	public TableColumn<UserModel, String> SfirstName;
 	@FXML
@@ -170,21 +170,21 @@ public class AdminScreenController implements Initializable {
 	@FXML
 	public TableColumn<UserModel, String> SsecurityPossesed;
 	@FXML
-	public TableColumn<LoanModel, Integer> RloanUniqueId;
+	public TableColumn<LoanModelDTO, Integer> RloanUniqueId;
 	@FXML
-	public TableColumn<LoanModel, String> Rsource;
+	public TableColumn<LoanModelDTO, String> Rsource;
 	@FXML
-	public TableColumn<LoanModel, String> RamountRange;
+	public TableColumn<LoanModelDTO, String> RamountRange;
 	@FXML
-	public TableColumn<LoanModel, String> RsecurityDemand;
+	public TableColumn<LoanModelDTO, String> RsecurityDemand;
 	@FXML
-	public TableColumn<LoanModel, Double> RinterestRate;
+	public TableColumn<LoanModelDTO, Double> RinterestRate;
 	@FXML
-	public TableColumn<LoanModel, Double> RminimumIncome;
+	public TableColumn<LoanModelDTO, Double> RminimumIncome;
 	@FXML
-	public TableColumn<LoanModel, String> RageRange;
+	public TableColumn<LoanModelDTO, String> RageRange;
 	@FXML
-	public TableColumn<LoanModel, String> Rtenure;
+	public TableColumn<LoanModelDTO, String> Rtenure;
 	@FXML
 	public TableColumn<UserModel, String> RfirstName;
 	@FXML
@@ -202,53 +202,53 @@ public class AdminScreenController implements Initializable {
 	@FXML
 	public TableColumn<UserModel, String> RsecurityPossesed;
 	@FXML
-	public TableColumn<LoanModel, Integer> HloanUniqueId;
+	public TableColumn<LoanModelDTO, Integer> HloanUniqueId;
 	@FXML
-	public TableColumn<LoanModel, String> Hsource;
+	public TableColumn<LoanModelDTO, String> Hsource;
 	@FXML
-	public TableColumn<LoanModel, String> HamountRange;
+	public TableColumn<LoanModelDTO, String> HamountRange;
 	@FXML
-	public TableColumn<LoanModel, String> HsecurityDemand;
+	public TableColumn<LoanModelDTO, String> HsecurityDemand;
 	@FXML
-	public TableColumn<LoanModel, Double> HinterestRate;
+	public TableColumn<LoanModelDTO, Double> HinterestRate;
 	@FXML
-	public TableColumn<LoanModel, Double> HminimumIncome;
+	public TableColumn<LoanModelDTO, Double> HminimumIncome;
 	@FXML
-	public TableColumn<LoanModel, String> HageRange;
+	public TableColumn<LoanModelDTO, String> HageRange;
 	@FXML
-	public TableColumn<LoanModel, String> Htenure;
+	public TableColumn<LoanModelDTO, String> Htenure;
 	@FXML
-	public TableColumn<LoanModel, Integer> EloanUniqueId;
+	public TableColumn<LoanModelDTO, Integer> EloanUniqueId;
 	@FXML
-	public TableColumn<LoanModel, String> Esource;
+	public TableColumn<LoanModelDTO, String> Esource;
 	@FXML
-	public TableColumn<LoanModel, String> EamountRange;
+	public TableColumn<LoanModelDTO, String> EamountRange;
 	@FXML
-	public TableColumn<LoanModel, String> EsecurityDemand;
+	public TableColumn<LoanModelDTO, String> EsecurityDemand;
 	@FXML
-	public TableColumn<LoanModel, Double> EinterestRate;
+	public TableColumn<LoanModelDTO, Double> EinterestRate;
 	@FXML
-	public TableColumn<LoanModel, Double> EminimumIncome;
+	public TableColumn<LoanModelDTO, Double> EminimumIncome;
 	@FXML
-	public TableColumn<LoanModel, String> EageRange;
+	public TableColumn<LoanModelDTO, String> EageRange;
 	@FXML
-	public TableColumn<LoanModel, String> Etenure;
+	public TableColumn<LoanModelDTO, String> Etenure;
 	@FXML
-	public TableColumn<LoanModel, Integer> CloanUniqueId;
+	public TableColumn<LoanModelDTO, Integer> CloanUniqueId;
 	@FXML
-	public TableColumn<LoanModel, String> Csource;
+	public TableColumn<LoanModelDTO, String> Csource;
 	@FXML
-	public TableColumn<LoanModel, String> CamountRange;
+	public TableColumn<LoanModelDTO, String> CamountRange;
 	@FXML
-	public TableColumn<LoanModel, String> CsecurityDemand;
+	public TableColumn<LoanModelDTO, String> CsecurityDemand;
 	@FXML
-	public TableColumn<LoanModel, Double> CinterestRate;
+	public TableColumn<LoanModelDTO, Double> CinterestRate;
 	@FXML
-	public TableColumn<LoanModel, Double> CminimumIncome;
+	public TableColumn<LoanModelDTO, Double> CminimumIncome;
 	@FXML
-	public TableColumn<LoanModel, String> CageRange;
+	public TableColumn<LoanModelDTO, String> CageRange;
 	@FXML
-	public TableColumn<LoanModel, String> Ctenure;
+	public TableColumn<LoanModelDTO, String> Ctenure;
 	@FXML
 	public TextField HtextFieldId;
 	@FXML
@@ -353,12 +353,12 @@ public class AdminScreenController implements Initializable {
 		resultField.clear();
 	}
 
-	public static Admin getAdmin() {
-		return admin;
+	public static AdminDTO getAdmin() {
+		return adminDTO;
 	}
 
-	public static void setAdmin(Admin admin) {
-		AdminScreenController.admin = admin;
+	public static void setAdmin(AdminDTO adminDTO) {
+		AdminPanelController.adminDTO = adminDTO;
 	}
 
 	@FXML
@@ -391,10 +391,10 @@ public class AdminScreenController implements Initializable {
 		homeLoansGrid.toFront();
 
 		Loan[] homeLoans = LoanManager.getInstance().getLoans(LoanType.HOME_LOAN);
-		ObservableList<LoanModel> homeLoansList = FXCollections.observableArrayList();
+		ObservableList<LoanModelDTO> homeLoansList = FXCollections.observableArrayList();
 
 		for (Loan homeLoan : homeLoans) {
-			LoanModel model = new LoanModel(homeLoan.getId(), homeLoan.getSource(),
+			LoanModelDTO model = new LoanModelDTO(homeLoan.getId(), homeLoan.getSource(),
 					integerRangeToString(homeLoan.getAmountRange()), homeLoan.getSecurityDemand(),
 					homeLoan.getInterestRate(), homeLoan.getMinIncome(), integerRangeToString(homeLoan.getAgeRange()),
 					integerRangeToString(homeLoan.getRepaymentPeriod()));
@@ -409,10 +409,10 @@ public class AdminScreenController implements Initializable {
 		carLoansGrid.toFront();
 
 		Loan[] carLoans = LoanManager.getInstance().getLoans(LoanType.CAR_LOAN);
-		ObservableList<LoanModel> carLoansList = FXCollections.observableArrayList();
+		ObservableList<LoanModelDTO> carLoansList = FXCollections.observableArrayList();
 
 		for (Loan carLoan : carLoans) {
-			LoanModel model = new LoanModel(carLoan.getId(), carLoan.getSource(),
+			LoanModelDTO model = new LoanModelDTO(carLoan.getId(), carLoan.getSource(),
 					integerRangeToString(carLoan.getAmountRange()), carLoan.getSecurityDemand(),
 					carLoan.getInterestRate(), carLoan.getMinIncome(), integerRangeToString(carLoan.getAgeRange()),
 					integerRangeToString(carLoan.getRepaymentPeriod()));
@@ -427,10 +427,10 @@ public class AdminScreenController implements Initializable {
 		educationLoansGrid.toFront();
 
 		Loan[] educationLoans = LoanManager.getInstance().getLoans(LoanType.EDUCATION_LOAN);
-		ObservableList<LoanModel> educationLoansList = FXCollections.observableArrayList();
+		ObservableList<LoanModelDTO> educationLoansList = FXCollections.observableArrayList();
 
 		for (Loan educationLoan : educationLoans) {
-			LoanModel model = new LoanModel(educationLoan.getId(), educationLoan.getSource(),
+			LoanModelDTO model = new LoanModelDTO(educationLoan.getId(), educationLoan.getSource(),
 					integerRangeToString(educationLoan.getAmountRange()), educationLoan.getSecurityDemand(),
 					educationLoan.getInterestRate(), educationLoan.getMinIncome(),
 					integerRangeToString(educationLoan.getAgeRange()),
@@ -444,10 +444,10 @@ public class AdminScreenController implements Initializable {
 	public void AloadUserInfo() throws SQLException {
 		AuserInfoTable.toFront();
 
-		UserLoan[] userloans = LoanManager.getInstance().getUserLoans();
+		UserLoanDTO[] userloans = LoanManager.getInstance().getUserLoans();
 		ObservableList<UserModel> userList = FXCollections.observableArrayList();
 
-		for (UserLoan userloan : userloans) {
+		for (UserLoanDTO userloan : userloans) {
 
 			if (userloan.getStatus().equals(LoanStatus.UNKNOWN)) {
 				User user = UserManager.getInstance().getUser(userloan.getUserEmail());
@@ -464,14 +464,14 @@ public class AdminScreenController implements Initializable {
 	public void AloadLoanInfo() throws SQLException {
 		AloanInfoTable.toFront();
 
-		UserLoan[] userloans = LoanManager.getInstance().getUserLoans();
-		ObservableList<LoanModel> loanList = FXCollections.observableArrayList();
+		UserLoanDTO[] userloans = LoanManager.getInstance().getUserLoans();
+		ObservableList<LoanModelDTO> loanList = FXCollections.observableArrayList();
 
-		for (UserLoan userloan : userloans) {
+		for (UserLoanDTO userloan : userloans) {
 			Loan loan = LoanManager.getInstance().getLoan(userloan.getLoanId());
 
 			if (userloan.getStatus().equals(LoanStatus.UNKNOWN)) {
-				LoanModel model = new LoanModel(loan.getId(), loan.getSource(),
+				LoanModelDTO model = new LoanModelDTO(loan.getId(), loan.getSource(),
 						integerRangeToString(loan.getAmountRange()), loan.getSecurityDemand(), loan.getInterestRate(),
 						loan.getMinIncome(), integerRangeToString(loan.getAgeRange()),
 						integerRangeToString(loan.getRepaymentPeriod()));
@@ -485,10 +485,10 @@ public class AdminScreenController implements Initializable {
 	public void SloadUserInfo() throws SQLException {
 		SuserInfoTable.toFront();
 
-		UserLoan[] userloans = LoanManager.getInstance().getUserLoans();
+		UserLoanDTO[] userloans = LoanManager.getInstance().getUserLoans();
 		ObservableList<UserModel> userList = FXCollections.observableArrayList();
 
-		for (UserLoan userloan : userloans) {
+		for (UserLoanDTO userloan : userloans) {
 
 			if (userloan.getStatus().equals(LoanStatus.ACCEPTED)) {
 				User user = UserManager.getInstance().getUser(userloan.getUserEmail());
@@ -505,14 +505,14 @@ public class AdminScreenController implements Initializable {
 	public void SloadLoanInfo() throws SQLException {
 		SloanInfoTable.toFront();
 
-		UserLoan[] userloans = LoanManager.getInstance().getUserLoans();
-		ObservableList<LoanModel> loanList = FXCollections.observableArrayList();
+		UserLoanDTO[] userloans = LoanManager.getInstance().getUserLoans();
+		ObservableList<LoanModelDTO> loanList = FXCollections.observableArrayList();
 
-		for (UserLoan userloan : userloans) {
+		for (UserLoanDTO userloan : userloans) {
 			Loan loan = LoanManager.getInstance().getLoan(userloan.getLoanId());
 
 			if (userloan.getStatus().equals(LoanStatus.ACCEPTED)) {
-				LoanModel model = new LoanModel(loan.getId(), loan.getSource(),
+				LoanModelDTO model = new LoanModelDTO(loan.getId(), loan.getSource(),
 						integerRangeToString(loan.getAmountRange()), loan.getSecurityDemand(), loan.getInterestRate(),
 						loan.getMinIncome(), integerRangeToString(loan.getAgeRange()),
 						integerRangeToString(loan.getRepaymentPeriod()));
@@ -526,10 +526,10 @@ public class AdminScreenController implements Initializable {
 	public void RloadUserInfo() throws SQLException {
 		RuserInfoTable.toFront();
 
-		UserLoan[] userloans = LoanManager.getInstance().getUserLoans();
+		UserLoanDTO[] userloans = LoanManager.getInstance().getUserLoans();
 		ObservableList<UserModel> userList = FXCollections.observableArrayList();
 
-		for (UserLoan userloan : userloans) {
+		for (UserLoanDTO userloan : userloans) {
 
 			if (userloan.getStatus().equals(LoanStatus.REJECTED)) {
 				User user = UserManager.getInstance().getUser(userloan.getUserEmail());
@@ -546,14 +546,14 @@ public class AdminScreenController implements Initializable {
 	public void RloadLoanInfo() throws SQLException {
 		RloanInfoTable.toFront();
 
-		UserLoan[] userloans = LoanManager.getInstance().getUserLoans();
-		ObservableList<LoanModel> loanList = FXCollections.observableArrayList();
+		UserLoanDTO[] userloans = LoanManager.getInstance().getUserLoans();
+		ObservableList<LoanModelDTO> loanList = FXCollections.observableArrayList();
 
-		for (UserLoan userloan : userloans) {
+		for (UserLoanDTO userloan : userloans) {
 			Loan loan = LoanManager.getInstance().getLoan(userloan.getLoanId());
 
 			if (userloan.getStatus().equals(LoanStatus.REJECTED)) {
-				LoanModel model = new LoanModel(loan.getId(), loan.getSource(),
+				LoanModelDTO model = new LoanModelDTO(loan.getId(), loan.getSource(),
 						integerRangeToString(loan.getAmountRange()), loan.getSecurityDemand(), loan.getInterestRate(),
 						loan.getMinIncome(), integerRangeToString(loan.getAgeRange()),
 						integerRangeToString(loan.getRepaymentPeriod()));
@@ -610,7 +610,7 @@ public class AdminScreenController implements Initializable {
 			double amount = Double.parseDouble(HtextFieldAmount.getText());
 			Loan loan = LoanManager.getInstance().getLoan(loanId);
 
-			admin.applyLoan(loan, amount);
+			adminDTO.applyLoan(loan, amount);
 		} catch (NumberFormatException e) {
 			HtextFieldId.clear();
 			HtextFieldAmount.clear();
@@ -635,7 +635,7 @@ public class AdminScreenController implements Initializable {
 			double amount = Double.parseDouble(EtextFieldAmount.getText());
 			Loan loan = LoanManager.getInstance().getLoan(loanId);
 
-			admin.applyLoan(loan, amount);
+			adminDTO.applyLoan(loan, amount);
 		} catch (NumberFormatException e) {
 			EtextFieldId.clear();
 			EtextFieldAmount.clear();
@@ -660,7 +660,7 @@ public class AdminScreenController implements Initializable {
 			double amount = Double.parseDouble(CtextFieldAmount.getText());
 			Loan loan = LoanManager.getInstance().getLoan(loanId);
 
-			admin.applyLoan(loan, amount);
+			adminDTO.applyLoan(loan, amount);
 		} catch (NumberFormatException e) {
 			CtextFieldId.clear();
 			CtextFieldAmount.clear();
@@ -687,12 +687,12 @@ public class AdminScreenController implements Initializable {
 		try {
 			User user = UserManager.getInstance().getUser(email);
 			Loan loan = LoanManager.getInstance().getLoan(loanId);
-			UserLoan[] userloans = LoanManager.getInstance().getUserLoans();
+			UserLoanDTO[] userloans = LoanManager.getInstance().getUserLoans();
 
-			for (UserLoan userloan : userloans) {
+			for (UserLoanDTO userloan : userloans) {
 				if (user.getEmail().equals(userloan.getUserEmail()) && (loan.getId() == userloan.getLoanId())
 						&& userloan.getStatus().equals(LoanStatus.UNKNOWN)) {
-					admin.sanctionLoan(user, loan);
+					adminDTO.sanctionLoan(user, loan);
 				} else {
 					txtEmailField.clear();
 					txtLoanId.clear();
@@ -722,12 +722,12 @@ public class AdminScreenController implements Initializable {
 		try {
 			User user = UserManager.getInstance().getUser(email);
 			Loan loan = LoanManager.getInstance().getLoan(loanId);
-			UserLoan[] userloans = LoanManager.getInstance().getUserLoans();
+			UserLoanDTO[] userloans = LoanManager.getInstance().getUserLoans();
 
-			for (UserLoan userloan : userloans) {
+			for (UserLoanDTO userloan : userloans) {
 				if (user.getEmail().equals(userloan.getUserEmail()) && (loan.getId() == userloan.getLoanId())
 						&& userloan.getStatus().equals(LoanStatus.UNKNOWN)) {
-					admin.rejectLoan(user, loan);
+					adminDTO.rejectLoan(user, loan);
 				} else {
 					txtEmailField.clear();
 					txtLoanId.clear();
@@ -756,12 +756,12 @@ public class AdminScreenController implements Initializable {
 		try {
 			User user = UserManager.getInstance().getUser(email);
 			Loan loan = LoanManager.getInstance().getLoan(loanId);
-			UserLoan[] userloans = LoanManager.getInstance().getUserLoans();
+			UserLoanDTO[] userloans = LoanManager.getInstance().getUserLoans();
 
-			for (UserLoan userloan : userloans) {
+			for (UserLoanDTO userloan : userloans) {
 				if (user.getEmail().equals(userloan.getUserEmail()) && (loan.getId() == userloan.getLoanId())
 						&& userloan.getStatus().equals(LoanStatus.UNKNOWN)) {
-					String result = admin.predictLoan(user, loan);
+					String result = adminDTO.predictLoan(user, loan);
 					txtEmailField.clear();
 					txtLoanId.clear();
 					txtEmailField.setPromptText("Enter user email");
@@ -795,7 +795,7 @@ public class AdminScreenController implements Initializable {
 
 		if (result.isPresent() && result.get() == ButtonType.OK) {
 			setAdmin(null);
-			new View().back();
+			new Screens().back();
 		}
 	}
 

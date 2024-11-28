@@ -4,7 +4,7 @@ import main.java.org.example.AIModel.DataLoader;
 import main.java.org.example.AIModel.Model;
 import main.java.org.example.AIModel.Preprocessor;
 
-public class Launch {
+public class Application {
 	private static final String DATABASE = "jdbc:mysql://localhost/lms_data"; //corresponding server address and database name should be assigned
 	private static final String USERNAME = "test";	//username for login to the server should be assigned
 	private static final String PASSWORD = "123qweasd!@#"; //password for login to the server should be assigned
@@ -38,10 +38,10 @@ public class Launch {
 	}
 
 	private static void loadData() {
-		DataStore.loadData(DATABASE, USERNAME, PASSWORD);
+		DatabaseController.loadData(DATABASE, USERNAME, PASSWORD);
 	}
 	
 	private static void start(String[] args) {
-		View.launchApplication(args);
+		Screens.launchApplication(args);
 	}
 }

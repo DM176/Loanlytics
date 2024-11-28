@@ -3,7 +3,7 @@ package main.java.org.example.entities;
 import java.sql.Date;
 import java.sql.Time;
 
-public class UserLoan {
+public class UserLoanDTO {
 
 	private String userEmail;
 	private int loanId;

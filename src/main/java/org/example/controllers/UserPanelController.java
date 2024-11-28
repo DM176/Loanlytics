@@ -6,10 +6,10 @@ import java.sql.SQLIntegrityConstraintViolationException;
 import java.util.Optional;
 import java.util.ResourceBundle;
 
-import main.java.org.example.View;
+import main.java.org.example.Screens;
 import main.java.org.example.constants.LoanType;
 import main.java.org.example.entities.Loan;
-import main.java.org.example.entities.LoanModel;
+import main.java.org.example.entities.LoanModelDTO;
 import main.java.org.example.entities.User;
 import main.java.org.example.managers.LoanManager;
 
@@ -35,7 +35,7 @@ import javafx.scene.layout.GridPane;
 import javafx.scene.layout.Pane;
 import javafx.scene.paint.Color;
 
-public class UserScreenController implements Initializable {
+public class UserPanelController implements Initializable {
 
 	@FXML
 	public Button btnHomeLoans;
@@ -56,59 +56,59 @@ public class UserScreenController implements Initializable {
 	@FXML
 	public GridPane homeLoansGrid;
 	@FXML
-	public TableView<LoanModel> homeLoansTable;
+	public TableView<LoanModelDTO> homeLoansTable;
 	@FXML
-	public TableView<LoanModel> educationLoansTable;
+	public TableView<LoanModelDTO> educationLoansTable;
 	@FXML
-	public TableView<LoanModel> carLoansTable;
+	public TableView<LoanModelDTO> carLoansTable;
 	@FXML
-	public TableColumn<LoanModel, Integer> HloanUniqueId;
+	public TableColumn<LoanModelDTO, Integer> HloanUniqueId;
 	@FXML
-	public TableColumn<LoanModel, String> Hsource;
+	public TableColumn<LoanModelDTO, String> Hsource;
 	@FXML
-	public TableColumn<LoanModel, String> HamountRange;
+	public TableColumn<LoanModelDTO, String> HamountRange;
 	@FXML
-	public TableColumn<LoanModel, String> HsecurityDemand;
+	public TableColumn<LoanModelDTO, String> HsecurityDemand;
 	@FXML
-	public TableColumn<LoanModel, Double> HinterestRate;
+	public TableColumn<LoanModelDTO, Double> HinterestRate;
 	@FXML
-	public TableColumn<LoanModel, Double> HminimumIncome;
+	public TableColumn<LoanModelDTO, Double> HminimumIncome;
 	@FXML
-	public TableColumn<LoanModel, String> HageRange;
+	public TableColumn<LoanModelDTO, String> HageRange;
 	@FXML
-	public TableColumn<LoanModel, String> Htenure;
+	public TableColumn<LoanModelDTO, String> Htenure;
 	@FXML
-	public TableColumn<LoanModel, Integer> EloanUniqueId;
+	public TableColumn<LoanModelDTO, Integer> EloanUniqueId;
 	@FXML
-	public TableColumn<LoanModel, String> Esource;
+	public TableColumn<LoanModelDTO, String> Esource;
 	@FXML
-	public TableColumn<LoanModel, String> EamountRange;
+	public TableColumn<LoanModelDTO, String> EamountRange;
 	@FXML
-	public TableColumn<LoanModel, String> EsecurityDemand;
+	public TableColumn<LoanModelDTO, String> EsecurityDemand;
 	@FXML
-	public TableColumn<LoanModel, Double> EinterestRate;
+	public TableColumn<LoanModelDTO, Double> EinterestRate;
 	@FXML
-	public TableColumn<LoanModel, Double> EminimumIncome;
+	public TableColumn<LoanModelDTO, Double> EminimumIncome;
 	@FXML
-	public TableColumn<LoanModel, String> EageRange;
+	public TableColumn<LoanModelDTO, String> EageRange;
 	@FXML
-	public TableColumn<LoanModel, String> Etenure;
+	public TableColumn<LoanModelDTO, String> Etenure;
 	@FXML
-	public TableColumn<LoanModel, Integer> CloanUniqueId;
+	public TableColumn<LoanModelDTO, Integer> CloanUniqueId;
 	@FXML
-	public TableColumn<LoanModel, String> Csource;
+	public TableColumn<LoanModelDTO, String> Csource;
 	@FXML
-	public TableColumn<LoanModel, String> CamountRange;
+	public TableColumn<LoanModelDTO, String> CamountRange;
 	@FXML
-	public TableColumn<LoanModel, String> CsecurityDemand;
+	public TableColumn<LoanModelDTO, String> CsecurityDemand;
 	@FXML
-	public TableColumn<LoanModel, Double> CinterestRate;
+	public TableColumn<LoanModelDTO, Double> CinterestRate;
 	@FXML
-	public TableColumn<LoanModel, Double> CminimumIncome;
+	public TableColumn<LoanModelDTO, Double> CminimumIncome;
 	@FXML
-	public TableColumn<LoanModel, String> CageRange;
+	public TableColumn<LoanModelDTO, String> CageRange;
 	@FXML
-	public TableColumn<LoanModel, String> Ctenure;
+	public TableColumn<LoanModelDTO, String> Ctenure;
 	@FXML
 	public TextField HtextFieldId;
 	@FXML
@@ -131,7 +131,7 @@ public class UserScreenController implements Initializable {
 	}
 
 	public static void setUser(User user) {
-		UserScreenController.user = user;
+		UserPanelController.user = user;
 	}
 
 	@Override
@@ -171,10 +171,10 @@ public class UserScreenController implements Initializable {
 		homeLoansGrid.toFront();
 
 		Loan[] homeLoans = LoanManager.getInstance().getLoans(LoanType.HOME_LOAN);
-		ObservableList<LoanModel> homeLoansList = FXCollections.observableArrayList();
+		ObservableList<LoanModelDTO> homeLoansList = FXCollections.observableArrayList();
 
 		for (Loan homeLoan : homeLoans) {
-			LoanModel model = new LoanModel(homeLoan.getId(), homeLoan.getSource(),
+			LoanModelDTO model = new LoanModelDTO(homeLoan.getId(), homeLoan.getSource(),
 					integerRangeToString(homeLoan.getAmountRange()), homeLoan.getSecurityDemand(),
 					homeLoan.getInterestRate(), homeLoan.getMinIncome(), integerRangeToString(homeLoan.getAgeRange()),
 					integerRangeToString(homeLoan.getRepaymentPeriod()));
@@ -189,10 +189,10 @@ public class UserScreenController implements Initializable {
 		carLoansGrid.toFront();
 
 		Loan[] carLoans = LoanManager.getInstance().getLoans(LoanType.CAR_LOAN);
-		ObservableList<LoanModel> carLoansList = FXCollections.observableArrayList();
+		ObservableList<LoanModelDTO> carLoansList = FXCollections.observableArrayList();
 
 		for (Loan carLoan : carLoans) {
-			LoanModel model = new LoanModel(carLoan.getId(), carLoan.getSource(),
+			LoanModelDTO model = new LoanModelDTO(carLoan.getId(), carLoan.getSource(),
 					integerRangeToString(carLoan.getAmountRange()), carLoan.getSecurityDemand(),
 					carLoan.getInterestRate(), carLoan.getMinIncome(), integerRangeToString(carLoan.getAgeRange()),
 					integerRangeToString(carLoan.getRepaymentPeriod()));
@@ -207,10 +207,10 @@ public class UserScreenController implements Initializable {
 		educationLoansGrid.toFront();
 
 		Loan[] educationLoans = LoanManager.getInstance().getLoans(LoanType.EDUCATION_LOAN);
-		ObservableList<LoanModel> educationLoansList = FXCollections.observableArrayList();
+		ObservableList<LoanModelDTO> educationLoansList = FXCollections.observableArrayList();
 
 		for (Loan educationLoan : educationLoans) {
-			LoanModel model = new LoanModel(educationLoan.getId(), educationLoan.getSource(),
+			LoanModelDTO model = new LoanModelDTO(educationLoan.getId(), educationLoan.getSource(),
 					integerRangeToString(educationLoan.getAmountRange()), educationLoan.getSecurityDemand(),
 					educationLoan.getInterestRate(), educationLoan.getMinIncome(),
 					integerRangeToString(educationLoan.getAgeRange()),
@@ -337,7 +337,7 @@ public class UserScreenController implements Initializable {
 
 		if (result.isPresent() && result.get() == ButtonType.OK) {
 			setUser(null);
-			new View().back();
+			new Screens().back();
 		}
 	}
 

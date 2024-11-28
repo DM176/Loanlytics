@@ -26,7 +26,7 @@
 	stylesheets="@../stylesheets/AdminScreen.css"
 	xmlns="http://javafx.com/javafx/11.0.1"
 	xmlns:fx="http://javafx.com/fxml/1"
-	fx:controller="main.java.org.example.controllers.AdminScreenController">
+	fx:controller="main.java.org.example.controllers.AdminPanelController">
 	<children>
 		<VBox layoutX="34.0" prefHeight="1033.0" prefWidth="338.0"
 			styleClass="vbox" stylesheets="@../stylesheets/UserScreen.css">

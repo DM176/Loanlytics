@@ -5,9 +5,9 @@
 package main.java.org.example.controllers;
 
 import java.util.Optional;
-import main.java.org.example.View;
+import main.java.org.example.Screens;
 import main.java.org.example.constants.Message;
-import main.java.org.example.entities.Admin;
+import main.java.org.example.entities.AdminDTO;
 import main.java.org.example.managers.UserManager;
 import javafx.fxml.FXML;
 import javafx.scene.control.PasswordField;
@@ -17,7 +17,7 @@ import javafx.scene.control.Alert;
 import javafx.scene.control.Alert.AlertType;
 import javafx.scene.control.ButtonType;
 
-public class LoginScreenController {
+public class LoginPanelController {
 	@FXML
 	public TextField email;
 	@FXML
@@ -47,12 +47,12 @@ public class LoginScreenController {
 	public void userLogin() throws Exception {
 		String Email = email.getText();
 		String Password = password.getText();
-		String loginStatus = UserController.getInstance().userLogin(Email, Password);
+		String loginStatus = UserProcessor.getInstance().userLogin(Email, Password);
 		
 
 		if (loginStatus.equals(Message.SUCCESS)) {
-			UserScreenController.setUser(UserManager.getInstance().getUser(Email));
-			new View().loadUserScreen();
+			UserPanelController.setUser(UserManager.getInstance().getUser(Email));
+			new Screens().loadUserScreen();
 			
 		} else if (loginStatus.equals(Message.INCORRECT_PASSWORD)) {
 			password.clear();
@@ -73,7 +73,7 @@ public class LoginScreenController {
 			Optional<ButtonType> result = alert.showAndWait();
 			
 			if(result.isPresent() && result.get() == ButtonType.OK) {
-				new View().loadRegistrationScreen();
+				new Screens().loadRegistrationScreen();
 			}
 		}
 	}
@@ -92,11 +92,11 @@ public class LoginScreenController {
 	public void adminLogin() throws Exception {
 		String Email = email.getText();
 		String Password = password.getText();
-		String loginStatus = UserController.getInstance().adminLogin(Email, Password);
+		String loginStatus = UserProcessor.getInstance().adminLogin(Email, Password);
 
 		if (loginStatus.equals(Message.SUCCESS)) {
-			AdminScreenController.setAdmin((Admin)UserManager.getInstance().getUser(Email));
-			new View().loadAdminScreen();
+			AdminPanelController.setAdmin((AdminDTO)UserManager.getInstance().getUser(Email));
+			new Screens().loadAdminScreen();
 			
 		} else if (loginStatus.equals(Message.INCORRECT_PASSWORD)) {
 			password.clear();
@@ -120,6 +120,6 @@ public class LoginScreenController {
 
 	@FXML
 	public void back() throws Exception {
-		new View().back();
+		new Screens().back();
 	}
 }

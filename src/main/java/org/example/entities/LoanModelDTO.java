@@ -1,6 +1,6 @@
 package main.java.org.example.entities;
 
-public class LoanModel {
+public class LoanModelDTO {
 	private Integer loanUniqueId;
 	private String source;
 	private String amountRange;
@@ -10,8 +10,8 @@ public class LoanModel {
 	private String ageRange;
 	private String tenure;
 
-	public LoanModel(Integer loanUniqueId, String source, String amountRange, String securityDemand,
-			Double interestRate, Double minimumIncome, String ageRange, String tenure) {
+	public LoanModelDTO(Integer loanUniqueId, String source, String amountRange, String securityDemand,
+						Double interestRate, Double minimumIncome, String ageRange, String tenure) {
 		this.loanUniqueId = loanUniqueId;//new SimpleIntegerProperty(loanUniqueId);
 		this.source = source; //new SimpleStringProperty(source);
 		this.amountRange = amountRange; //new SimpleStringProperty(amountRange);
