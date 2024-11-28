@@ -23,8 +23,6 @@ public class User {
 	private double creditHistoryLength;
 	private double loanGrade;
 
-
-
 	public double getIncome() {
 		return income;
 	}

@@ -12,7 +12,6 @@ public class Main {
         }
 
         // Preprocess data
-        Preprocessor preprocessor = new Preprocessor();
         double[][] xTrain = Preprocessor.normalizeFeatures(dataLoader.getUsers());
         double[][] yTrain = Preprocessor.extractTargets(dataLoader.getLoans());
 
@@ -27,21 +26,20 @@ public class Main {
 
         // Normalized and favorable values
         request.setAge(30);  // Normalized if necessary
-        request.setIncome(50000000);  // Normalize if necessary
+        request.setIncome(500000);  // Normalize if necessary
         request.setHomeOwnership("OWN");  // Encoded to 1
-        request.setEmpLength(10);  // Encoded if necessary
+        request.setEmpLength(5);  // Encoded if necessary
         request.setLoanIntent("BUSINESS");  // Encoded to 1
         request.setLoanGrade("A");  // Encoded to 0
-        request.setPercentIncome(70);  // This might be normalized
+        request.setPercentIncome(30);  // This might be normalized
         request.setDefaultOnFile("N");  // Encoded to 0
 
         // Make the prediction
         double[] prediction = predictionService.makePrediction(request);
 
         // Use a different threshold if needed
+        System.out.println("Prediction: " + (prediction[0]));
+
         System.out.println("Prediction: " + (prediction[0] > 0.45 ? "Loan Approved" : "Loan Denied"));
-
-
-
     }
 }

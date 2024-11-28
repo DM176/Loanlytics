@@ -10,7 +10,7 @@ public class LoanPredictionRequest {
     private String loanGrade; // e.g., "A", "B"
     private double percentIncome; // percentage of income for the loan
     private String defaultOnFile; // e.g., "Y" or "N"
-    private int creditHistoryLength; // in years
+    private double creditHistoryLength; // in years
 
     // Getters and Setters
     public int getAge() { return age; }
@@ -37,6 +37,6 @@ public class LoanPredictionRequest {
     public String getDefaultOnFile() { return defaultOnFile; }
     public void setDefaultOnFile(String defaultOnFile) { this.defaultOnFile = defaultOnFile; }
 
-    public int getCreditHistoryLength() { return creditHistoryLength; }
-    public void setCreditHistoryLength(int creditHistoryLength) { this.creditHistoryLength = creditHistoryLength; }
+    public double getCreditHistoryLength() { return creditHistoryLength; }
+    public void setCreditHistoryLength(double creditHistoryLength) { this.creditHistoryLength = creditHistoryLength; }
 }

@@ -70,17 +70,28 @@ public class LoanManager {
 		dao.updateLoanStatus(user, loan, date, time, LoanStatus.REJECTED);
 	}
 	public void predictLoan(User user, Loan loan) throws SQLException {
+		Date date=new Date(System.currentTimeMillis());
+		Time time=new Time(System.currentTimeMillis());
+
 		LoanPredictionRequest request = new LoanPredictionRequest();
-		request.setAge(35);
-		request.setIncome(50000);
+		request.setAge(user.getAge());
+		request.setIncome(user.getIncome());
 		request.setHomeOwnership("OWN");
 		request.setEmpLength(10);
-		request.setLoanIntent("PERSONAL");
+		request.setLoanIntent(loan.getLoanType());
 		request.setLoanGrade("A");
 		request.setPercentIncome(20);
 		request.setDefaultOnFile("N");
-		request.setCreditHistoryLength(5);
+		request.setCreditHistoryLength(user.getCreditScore());
 		predictionService.makePrediction(request);
+		double[] prediction = predictionService.makePrediction(request);
+		if(prediction[0]> 0.45 ){
+			dao.updateLoanStatus(user, loan, date, time, LoanStatus.CAN_BE_APPROVED);
+		} else {
+			dao.updateLoanStatus(user, loan, date, time, LoanStatus.SHOULD_BE_REJECTED);
+		}
+		System.out.println("Prediction: " + (prediction[0] > 0.25 ? "Loan Approved" : "Loan Denied"));
+
 	}
 
 }
