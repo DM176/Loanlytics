@@ -23,11 +23,11 @@
 					fitWidth="109.0" layoutX="47.0" layoutY="169.0" pickOnBounds="true"
 					preserveRatio="true">
 					<image>
-						<Image url="@../Images/LordGanesh.png" />
+						<Image url="@../Images/UserLogo.png" />
 					</image>
 				</ImageView>
 				<Label layoutX="-56.0" layoutY="313.0" prefHeight="95.0"
-					prefWidth="336.0" text="Dhanprayog">
+					prefWidth="336.0" text="Loanlytics">
 					<font>
 						<Font name="Ubuntu Condensed" size="70.0" />
 					</font>

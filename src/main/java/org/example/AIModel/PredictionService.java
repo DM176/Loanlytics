@@ -15,7 +15,7 @@ public class PredictionService {
         return instance;
     }
 
-    public double[] makePrediction(LoanPredictionRequest request) {
+    public double makePrediction(LoanPredictionRequest request) {
             // Convert categorical values to numeric using a simple encoding
         double homeOwnership;
         switch (request.getHomeOwnership().toUpperCase()) {
@@ -86,7 +86,8 @@ public class PredictionService {
                 loanGrade,
                 request.getPercentIncome(),
                 defaultOnFile,
-                request.getCreditHistoryLength()
+                request.getCreditHistoryLength(),
+                request.getLoanStatus()
         };
 
         return model.predict(features);

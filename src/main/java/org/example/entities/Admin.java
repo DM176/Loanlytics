@@ -14,8 +14,8 @@ public class Admin extends User{
 		LoanController.getInstance().rejectLoan(user, loan);
 	}
 
-	public void predictLoan(User user, Loan loan) throws SQLException {
-		LoanController.getInstance().predictLoan(user, loan);
+	public String predictLoan(User user, Loan loan) throws SQLException {
+		return LoanController.getInstance().predictLoan(user, loan);
 	}
 
 }

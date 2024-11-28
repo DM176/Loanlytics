@@ -24,13 +24,17 @@ public class Launch {
 			return;
 		}
 
-		double[][] xTrain = Preprocessor.normalizeFeatures(dataLoader.getUsers());
-		double[][] yTrain = Preprocessor.extractTargets(dataLoader.getLoans());
+		// Preprocess data
+		// Normalize features: xTrain will have the features for training
+		double[][] xTrain = Preprocessor.normalizeFeatures(dataLoader.getUsers(), dataLoader.getLoans());
+		// Extract targets: yTrain will have the loan statuses for training
+		double[] yTrain = Preprocessor.extractTargets(dataLoader.getLoans());
 
+		// Train model
 		Model model = Model.getInstance();
 		model.train(xTrain, yTrain, 1000, 0.01);
 
-		System.out.println("Model trained and application is ready to serve predictions.");
+		System.out.println("Model trained successfully. Ready for predictions!");
 	}
 
 	private static void loadData() {

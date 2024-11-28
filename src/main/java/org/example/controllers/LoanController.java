@@ -29,8 +29,8 @@ public class LoanController {
 	public void rejectLoan(User user, Loan loan) throws SQLException {
 		LoanManager.getInstance().rejectLoan(user, loan);
 	}
-	public void predictLoan(User user, Loan loan) throws SQLException {
-		LoanManager.getInstance().predictLoan(user, loan);
+	public String predictLoan(User user, Loan loan) throws SQLException {
+		return LoanManager.getInstance().predictLoan(user, loan);
 	}
 
 }

@@ -350,7 +350,7 @@ public class AdminScreenController implements Initializable {
 		Rincome.setCellValueFactory(new PropertyValueFactory<>("income"));
 		RcreditScore.setCellValueFactory(new PropertyValueFactory<>("creditScore"));
 		RsecurityPossesed.setCellValueFactory(new PropertyValueFactory<>("securityPossesed"));
-		resultField.setText(" ");
+		resultField.clear();
 	}
 
 	public static Admin getAdmin() {
@@ -564,6 +564,7 @@ public class AdminScreenController implements Initializable {
 	}
 
 	public void setLabelAndBackground(ActionEvent e) {
+		resultField.clear();
 		if (e.getSource() == btnLoansApplied) {
 			lblButtonInfo.setText("Loans Applied");
 			pnButtonInfo.setBackground(
@@ -679,7 +680,7 @@ public class AdminScreenController implements Initializable {
 
 	@FXML
 	public void handleAcceptLoan() {
-		resultField.setText(" ");
+		resultField.clear();
 		String email = txtEmailField.getText();
 		int loanId = Integer.parseInt(txtLoanId.getText());
 
@@ -713,7 +714,7 @@ public class AdminScreenController implements Initializable {
 
 	@FXML
 	public void handleRejectLoan() {
-		resultField.setText(" ");
+		resultField.clear();
 
 		String email = txtEmailField.getText();
 		int loanId = Integer.parseInt(txtLoanId.getText());
@@ -760,7 +761,12 @@ public class AdminScreenController implements Initializable {
 			for (UserLoan userloan : userloans) {
 				if (user.getEmail().equals(userloan.getUserEmail()) && (loan.getId() == userloan.getLoanId())
 						&& userloan.getStatus().equals(LoanStatus.UNKNOWN)) {
-					admin.predictLoan(user, loan);
+					String result = admin.predictLoan(user, loan);
+					txtEmailField.clear();
+					txtLoanId.clear();
+					txtEmailField.setPromptText("Enter user email");
+					txtLoanId.setPromptText("Enter loan id");
+					resultField.setText(result);
 				} else {
 					txtEmailField.clear();
 					txtLoanId.clear();

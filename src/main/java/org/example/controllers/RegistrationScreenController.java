@@ -200,7 +200,7 @@ public class RegistrationScreenController {
 
 	public String getGender() {
 		if (!gender.getText().equals(Gender.MALE) && !gender.getText().equals(Gender.FEMALE)
-				&& !gender.getText().equals(Gender.TRANSGENDER)) {
+				&& !gender.getText().equals(Gender.OTHER)) {
 			alert.setAlertType(AlertType.ERROR);
 			alert.setContentText("Fields marked mandatory can't be left empty.");
 			alert.getDialogPane().setMinHeight(Region.USE_PREF_SIZE);
@@ -276,7 +276,7 @@ public class RegistrationScreenController {
 		} else if (((MenuItem) e.getSource()).getText().equals(Gender.FEMALE)) {
 			gender.setText(Gender.FEMALE);
 		} else {
-			gender.setText(Gender.TRANSGENDER);
+			gender.setText(Gender.OTHER);
 		}
 	}
 

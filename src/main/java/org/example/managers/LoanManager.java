@@ -69,7 +69,7 @@ public class LoanManager {
 		Time time=new Time(System.currentTimeMillis());
 		dao.updateLoanStatus(user, loan, date, time, LoanStatus.REJECTED);
 	}
-	public void predictLoan(User user, Loan loan) throws SQLException {
+	public String predictLoan(User user, Loan loan) throws SQLException {
 		Date date=new Date(System.currentTimeMillis());
 		Time time=new Time(System.currentTimeMillis());
 
@@ -84,13 +84,14 @@ public class LoanManager {
 		request.setDefaultOnFile("N");
 		request.setCreditHistoryLength(user.getCreditScore());
 		predictionService.makePrediction(request);
-		double[] prediction = predictionService.makePrediction(request);
-		if(prediction[0]> 0.45 ){
+		double prediction = predictionService.makePrediction(request);
+		if(prediction==1 ){
 			dao.updateLoanStatus(user, loan, date, time, LoanStatus.CAN_BE_APPROVED);
 		} else {
 			dao.updateLoanStatus(user, loan, date, time, LoanStatus.SHOULD_BE_REJECTED);
 		}
-		System.out.println("Prediction: " + (prediction[0] > 0.25 ? "Loan Approved" : "Loan Denied"));
+		String res = "Prediction: " + (prediction>0.18 ? "Loan Approved" : "Loan Denied");
+		return res;
 
 	}
 

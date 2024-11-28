@@ -11,6 +11,15 @@ public class LoanPredictionRequest {
     private double percentIncome; // percentage of income for the loan
     private String defaultOnFile; // e.g., "Y" or "N"
     private double creditHistoryLength; // in years
+    private int loanStatus; // Add loanStatus to Loan class (approved = 1, denied = 0)
+
+    public int getLoanStatus() {
+        return loanStatus;
+    }
+
+    public void setLoanStatus(int loanStatus) {
+        this.loanStatus = loanStatus;
+    }
 
     // Getters and Setters
     public int getAge() { return age; }

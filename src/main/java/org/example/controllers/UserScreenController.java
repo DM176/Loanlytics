@@ -245,6 +245,7 @@ public class UserScreenController implements Initializable {
 
 	@FXML
 	public void HhandleApply() {
+		boolean catch_bool = false;
 		try {
 			int loanId = Integer.parseInt(HtextFieldId.getText());
 			double amount = Double.parseDouble(HtextFieldAmount.getText());
@@ -252,6 +253,7 @@ public class UserScreenController implements Initializable {
 
 			user.applyLoan(loan, amount);
 		} catch (NumberFormatException e) {
+			catch_bool = true;
 			HtextFieldId.clear();
 			HtextFieldAmount.clear();
 			HtextFieldId.setPromptText("Enter the Loan Unique Id");
@@ -259,12 +261,21 @@ public class UserScreenController implements Initializable {
 			resultField.setText("Please enter a valid id and amount");
 		} catch (SQLIntegrityConstraintViolationException e) {
 			resultField.setText("You have already applied for this loan");
+			catch_bool = true;
 		} catch (SQLException e) {
 			HtextFieldId.clear();
 			HtextFieldAmount.clear();
 			HtextFieldId.setPromptText("Enter the Loan Unique Id");
 			HtextFieldAmount.setPromptText("Enter the Amount");
 			resultField.setText("Loan with given id is not available");
+			catch_bool = true;
+		}
+		if(!catch_bool){
+			HtextFieldId.clear();
+			HtextFieldAmount.clear();
+			HtextFieldId.setPromptText("Enter the Loan Unique Id");
+			HtextFieldAmount.setPromptText("Enter the Amount");
+			resultField.setText("Loan applied, now administration will review and let you know");
 		}
 	}
 

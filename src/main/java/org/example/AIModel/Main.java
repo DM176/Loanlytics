@@ -12,8 +12,10 @@ public class Main {
         }
 
         // Preprocess data
-        double[][] xTrain = Preprocessor.normalizeFeatures(dataLoader.getUsers());
-        double[][] yTrain = Preprocessor.extractTargets(dataLoader.getLoans());
+        // Normalize features: xTrain will have the features for training
+        double[][] xTrain = Preprocessor.normalizeFeatures(dataLoader.getUsers(), dataLoader.getLoans());
+        // Extract targets: yTrain will have the loan statuses for training
+        double[] yTrain = Preprocessor.extractTargets(dataLoader.getLoans());
 
         // Train model
         Model model = Model.getInstance();
@@ -24,22 +26,21 @@ public class Main {
         PredictionService predictionService = PredictionService.getInstance();
         LoanPredictionRequest request = new LoanPredictionRequest();
 
-        // Normalized and favorable values
-        request.setAge(30);  // Normalized if necessary
-        request.setIncome(500000);  // Normalize if necessary
+        // Set input features for a loan prediction request
+        request.setAge(40);  // Normalized if necessary
+        request.setIncome(5000000);  // Normalize if necessary
         request.setHomeOwnership("OWN");  // Encoded to 1
         request.setEmpLength(5);  // Encoded if necessary
         request.setLoanIntent("BUSINESS");  // Encoded to 1
         request.setLoanGrade("A");  // Encoded to 0
-        request.setPercentIncome(30);  // This might be normalized
+        request.setPercentIncome(60);  // This might be normalized
         request.setDefaultOnFile("N");  // Encoded to 0
-
+        request.setLoanStatus(0);
         // Make the prediction
-        double[] prediction = predictionService.makePrediction(request);
+        double prediction = predictionService.makePrediction(request);
+        System.out.println("Prediction: " + prediction);
 
         // Use a different threshold if needed
-        System.out.println("Prediction: " + (prediction[0]));
-
-        System.out.println("Prediction: " + (prediction[0] > 0.45 ? "Loan Approved" : "Loan Denied"));
+        System.out.println("Prediction: " + (prediction >0.18 ? "Loan Approved" : "Loan Denied"));
     }
 }

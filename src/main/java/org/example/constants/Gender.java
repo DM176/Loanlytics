@@ -5,5 +5,5 @@ public class Gender {
 	
 	public static final String MALE="Male";
 	public static final String FEMALE="Female";
-	public static final String TRANSGENDER="Transgender";
+	public static final String OTHER ="";
 }
