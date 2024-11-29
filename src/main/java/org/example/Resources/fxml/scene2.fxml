@@ -27,7 +27,7 @@
 					</image>
 				</ImageView>
 				<Label layoutX="-56.0" layoutY="313.0" prefHeight="95.0"
-					prefWidth="336.0" text="Loanlytics">
+					prefWidth="336.0" text="Creditlytics">
 					<font>
 						<Font name="Ubuntu Condensed" size="70.0" />
 					</font>

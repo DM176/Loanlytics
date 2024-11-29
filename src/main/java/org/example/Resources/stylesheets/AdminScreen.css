@@ -2,11 +2,11 @@
     -fx-background-color:#333333;
 }
 .vbox{
-    -fx-background-color:#e00000;
+    -fx-background-color:#0092e0;
 }
 .btn{
     -fx-alignment: baseline-left;
-    -fx-background-color:#e00000;
+    -fx-background-color:#0092e0;
 }
 .btn:hover{
     -fx-alignment: baseline-left;
@@ -23,7 +23,7 @@
     -fx-background-color:	#3e3e42;
 }
 .pane{
-    -fx-background-color:#FF3503;
+    -fx-background-color:#426b96;
 }
 .profilebtn {
     -fx-background-color:#333333;

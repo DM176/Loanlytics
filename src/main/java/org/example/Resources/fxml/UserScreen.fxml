@@ -57,7 +57,7 @@
 					graphicTextGap="15.0" layoutX="10.0" layoutY="454.0"
 					mnemonicParsing="false" onAction="#loadHomeLoans" prefHeight="91.0"
 					prefWidth="338.0" styleClass="btn"
-					stylesheets="@../stylesheets/UserScreen.css" text="Home Loans"
+					stylesheets="@../stylesheets/UserScreen.css" text="Home Credits"
 					textFill="WHITE">
 					<graphic>
 						<FontAwesomeIconView fill="WHITE"
@@ -74,7 +74,7 @@
 					graphicTextGap="15.0" layoutX="10.0" layoutY="724.0"
 					mnemonicParsing="false" onAction="#loadEducationLoans"
 					prefHeight="87.0" prefWidth="338.0" styleClass="btn"
-					stylesheets="@../stylesheets/UserScreen.css" text="Education Loans"
+					stylesheets="@../stylesheets/UserScreen.css" text="Education Credits"
 					textFill="WHITE">
 					<graphic>
 						<FontAwesomeIconView fill="WHITE"
@@ -91,7 +91,7 @@
 					graphicTextGap="15.0" layoutX="10.0" layoutY="668.0"
 					mnemonicParsing="false" onAction="#loadCarLoans" prefHeight="79.0"
 					prefWidth="338.0" styleClass="btn"
-					stylesheets="@../stylesheets/UserScreen.css" text="Car Loans"
+					stylesheets="@../stylesheets/UserScreen.css" text="Car Credits"
 					textFill="WHITE">
 					<graphic>
 						<FontAwesomeIconView fill="WHITE"
@@ -123,7 +123,7 @@
 			</children>
 		</VBox>
 		<Label layoutX="327.0" layoutY="14.0" prefHeight="86.0"
-			prefWidth="359.0" text="Loan Management System">
+			prefWidth="359.0" text="Credit Management System">
 			<font>
 				<Font name="Ubuntu Condensed" size="74.0" />
 			</font>
@@ -144,7 +144,7 @@
 			AnchorPane.rightAnchor="-1.0">
 			<children>
 				<Label fx:id="lblButtonInfo" graphicTextGap="35.0"
-					layoutX="37.0" layoutY="28.0" text="Loans Applied"
+					layoutX="37.0" layoutY="28.0" text="Credits Applied"
 					textFill="#f2eaea">
 					<font>
 						<Font name="Ubuntu Condensed" size="51.0" />
@@ -176,7 +176,7 @@
 							<columns>
 								<TableColumn fx:id="HloanUniqueId" prefWidth="134.0"
 									style="-fx-background-color: #ff3737; -fx-font: 15px &quot;Ubuntu Condensed&quot;; -fx-text-fill: white;"
-									text="Loan UniqueId" />
+									text="Credit UniqueId" />
 								<TableColumn fx:id="Hsource" prefWidth="139.0"
 									style="-fx-background-color: #ff3737; -fx-font: 15px &quot;Ubuntu Condensed&quot;; -fx-text-fill: white;"
 									text="Source" />
@@ -234,7 +234,7 @@
 									</font>
 								</Button>
 								<TextField fx:id="HtextFieldId"
-									promptText="Enter the Loan Unique id" styleClass="txtfield">
+									promptText="Enter the Credit Unique id" styleClass="txtfield">
 									<font>
 										<Font size="14.0" />
 									</font>
@@ -267,7 +267,7 @@
 							<columns>
 								<TableColumn fx:id="EloanUniqueId" prefWidth="134.0"
 									style="-fx-background-color: #ff3737; -fx-font: 15px &quot;Ubuntu Condensed&quot;; -fx-text-fill: white;"
-									text="Loan UniqueId" />
+									text="Credit UniqueId" />
 								<TableColumn fx:id="Esource" prefWidth="139.0"
 									style="-fx-background-color: #ff3737; -fx-font: 15px &quot;Ubuntu Condensed&quot;; -fx-text-fill: white;"
 									text="Source" />
@@ -325,7 +325,7 @@
 									</font>
 								</Button>
 								<TextField fx:id="EtextFieldId"
-									promptText="Enter the Loan Unique id" styleClass="txtfield">
+									promptText="Enter the Credit Unique id" styleClass="txtfield">
 									<font>
 										<Font size="14.0" />
 									</font>
@@ -358,7 +358,7 @@
 							<columns>
 								<TableColumn fx:id="CloanUniqueId" prefWidth="134.0"
 									style="-fx-background-color: #ff3737; -fx-font: 15px &quot;Ubuntu Condensed&quot;; -fx-text-fill: white;"
-									text="Loan UniqueId" />
+									text="Credit UniqueId" />
 								<TableColumn fx:id="Csource" prefWidth="139.0"
 									style="-fx-background-color: #ff3737; -fx-font: 15px &quot;Ubuntu Condensed&quot;; -fx-text-fill: white;"
 									text="Source" />
@@ -416,7 +416,7 @@
 									</font>
 								</Button>
 								<TextField fx:id="CtextFieldId"
-									promptText="Enter the Loan Unique id" styleClass="txtfield">
+									promptText="Enter the Credit Unique id" styleClass="txtfield">
 									<font>
 										<Font size="14.0" />
 									</font>
@@ -445,7 +445,7 @@
 							<columns>
 								<TableColumn fx:id="MloanType" prefWidth="134.0"
 									style="-fx-background-color: #ff3737; -fx-font: 15px &quot;Ubuntu Condensed&quot;; -fx-text-fill: white;"
-									text="Loan Type" />
+									text="Credit Type" />
 								<TableColumn fx:id="Msource" prefWidth="258.0"
 									style="-fx-background-color: #ff3737; -fx-font: 15px &quot;Ubuntu Condensed&quot;; -fx-text-fill: white;"
 									text="Source" />

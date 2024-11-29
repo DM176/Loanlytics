@@ -17,7 +17,7 @@
 
 <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="603.0" prefWidth="915.0" style="-fx-background-color: #333333#333333;" stylesheets="@../stylesheets/AdminLogin.css" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="main.java.org.example.controllers.LoginPanelController">
 	<children>
-		<Pane layoutX="106.0" prefHeight="603.0" prefWidth="263.0" style="-fx-background-color: #ff3737;">
+		<Pane layoutX="106.0" prefHeight="603.0" prefWidth="263.0" style="-fx-background-color: #37fffc;">
 			<children>
 				<Label layoutX="129.0" layoutY="202.0" textFill="#bc1563">
 					<font>
@@ -78,7 +78,7 @@
 				<Cursor fx:constant="OPEN_HAND" />
 			</cursor>
 		</Button>
-		<Label layoutX="335.0" layoutY="14.0" prefHeight="74.0" prefWidth="270.0" text="Loan Management System">
+		<Label layoutX="335.0" layoutY="14.0" prefHeight="74.0" prefWidth="270.0" text="Credit Management System">
 			<font>
 				<Font name="Ubuntu Condensed" size="56.0" />
 			</font>

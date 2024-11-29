@@ -101,7 +101,7 @@
 			</cursor>
 		</Button>
 		<Label layoutX="335.0" layoutY="14.0" prefHeight="74.0"
-			prefWidth="270.0" text="Loan Management System">
+			prefWidth="270.0" text="Credit Management System">
 			<font>
 				<Font name="Ubuntu Condensed" size="56.0" />
 			</font>

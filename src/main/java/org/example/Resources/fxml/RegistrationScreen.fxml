@@ -87,7 +87,7 @@
 						<Font name="Ubuntu Light" size="17.0" />
 					</font>
 				</Label>
-				<Label alignment="CENTER" layoutX="386.0" layoutY="206.0" prefHeight="20.0" prefWidth="112.0" text="Income(lpa) :" textFill="WHITE">
+				<Label alignment="CENTER" layoutX="386.0" layoutY="206.0" prefHeight="20.0" prefWidth="112.0" text="Income :" textFill="WHITE">
 					<font>
 						<Font name="Ubuntu Light" size="17.0" />
 					</font>
@@ -121,7 +121,7 @@
 						<Cursor fx:constant="OPEN_HAND" />
 					</cursor>
 				</CheckBox>
-				<CheckBox fx:id="nonPersonal" layoutX="344.0" layoutY="306.0" mnemonicParsing="false" text="Non-Perosnal" textFill="#fce6e6">
+				<CheckBox fx:id="nonPersonal" layoutX="344.0" layoutY="306.0" mnemonicParsing="false" text="Non-Personal" textFill="#fce6e6">
 					<font>
 						<Font name="Ubuntu Light" size="17.0" />
 					</font>
@@ -198,7 +198,7 @@
 						<Cursor fx:constant="OPEN_HAND" />
 					</cursor>
 				</Button>
-				<Label layoutX="-31.0" layoutY="14.0" prefHeight="59.0" prefWidth="227.0" text="Loan Management System">
+				<Label layoutX="-31.0" layoutY="14.0" prefHeight="59.0" prefWidth="227.0" text="Credit Management System">
 					<font>
 						<Font name="Ubuntu Condensed" size="50.0" />
 					</font>

@@ -58,7 +58,7 @@
 					graphicTextGap="15.0" layoutX="10.0" layoutY="289.0"
 					mnemonicParsing="false" onAction="#loadLoansApplied"
 					prefHeight="88.0" prefWidth="338.0" styleClass="btn"
-					stylesheets="@../stylesheets/UserScreen.css" text="Loans Applied"
+					stylesheets="@../stylesheets/UserScreen.css" text="Credits Applied"
 					textFill="WHITE">
 					<padding>
 						<Insets left="50.0" />
@@ -79,7 +79,7 @@
 					graphicTextGap="15.0" mnemonicParsing="false"
 					onAction="#loadLoansSanctioned" prefHeight="94.0" prefWidth="338.0"
 					styleClass="btn" stylesheets="@../stylesheets/UserScreen.css"
-					text="Loans Sanctioned" textFill="WHITE">
+					text="Credits Sanctioned" textFill="WHITE">
 					<padding>
 						<Insets left="50.0" />
 					</padding>
@@ -99,7 +99,7 @@
 					graphicTextGap="15.0" layoutX="10.0" layoutY="10.0"
 					mnemonicParsing="false" onAction="#loadLoansRejected"
 					prefHeight="92.0" prefWidth="338.0" styleClass="btn"
-					stylesheets="@../stylesheets/UserScreen.css" text="Loans Rejected"
+					stylesheets="@../stylesheets/UserScreen.css" text="Credits Rejected"
 					textFill="WHITE">
 					<graphic>
 						<FontAwesomeIconView fill="WHITE"
@@ -126,7 +126,7 @@
 					graphicTextGap="15.0" layoutX="10.0" layoutY="454.0"
 					mnemonicParsing="false" onAction="#loadHomeLoans" prefHeight="91.0"
 					prefWidth="338.0" styleClass="btn"
-					stylesheets="@../stylesheets/UserScreen.css" text="Home Loans"
+					stylesheets="@../stylesheets/UserScreen.css" text="Home Credits"
 					textFill="WHITE">
 					<graphic>
 						<FontAwesomeIconView fill="WHITE"
@@ -143,7 +143,7 @@
 					graphicTextGap="15.0" layoutX="10.0" layoutY="724.0"
 					mnemonicParsing="false" onAction="#loadEducationLoans"
 					prefHeight="87.0" prefWidth="338.0" styleClass="btn"
-					stylesheets="@../stylesheets/UserScreen.css" text="Education Loans"
+					stylesheets="@../stylesheets/UserScreen.css" text="Education Credits"
 					textFill="WHITE">
 					<graphic>
 						<FontAwesomeIconView fill="WHITE"
@@ -160,7 +160,7 @@
 					graphicTextGap="15.0" layoutX="10.0" layoutY="668.0"
 					mnemonicParsing="false" onAction="#loadCarLoans" prefHeight="79.0"
 					prefWidth="338.0" styleClass="btn"
-					stylesheets="@../stylesheets/UserScreen.css" text="Car Loans"
+					stylesheets="@../stylesheets/UserScreen.css" text="Car Credits"
 					textFill="WHITE">
 					<graphic>
 						<FontAwesomeIconView fill="WHITE"
@@ -192,7 +192,7 @@
 			</children>
 		</VBox>
 		<Label layoutX="327.0" layoutY="14.0" prefHeight="86.0"
-			prefWidth="359.0" text="Loan Management System">
+			prefWidth="359.0" text="Credit Management System">
 			<font>
 				<Font name="Ubuntu Condensed" size="74.0" />
 			</font>
@@ -213,7 +213,7 @@
 			AnchorPane.rightAnchor="-1.0">
 			<children>
 				<Label fx:id="lblButtonInfo" graphicTextGap="35.0"
-					layoutX="37.0" layoutY="28.0" text="Loans Applied"
+					layoutX="37.0" layoutY="28.0" text="Credits Applied"
 					textFill="#f2eaea">
 					<font>
 						<Font name="Ubuntu Condensed" size="51.0" />
@@ -245,7 +245,7 @@
 							<columns>
 								<TableColumn fx:id="HloanUniqueId" prefWidth="134.0"
 									style="-fx-background-color: #ff3737; -fx-font: 15px &quot;Ubuntu Condensed&quot;; -fx-text-fill: white;"
-									text="Loan UniqueId" />
+									text="Credit UniqueId" />
 								<TableColumn fx:id="Hsource" prefWidth="139.0"
 									style="-fx-background-color: #ff3737; -fx-font: 15px &quot;Ubuntu Condensed&quot;; -fx-text-fill: white;"
 									text="Source" />
@@ -303,7 +303,7 @@
 									</font>
 								</Button>
 								<TextField fx:id="HtextFieldId"
-									promptText="Enter the Loan Unique id" styleClass="txtfield">
+									promptText="Enter the Credit Unique id" styleClass="txtfield">
 									<font>
 										<Font size="14.0" />
 									</font>
@@ -336,7 +336,7 @@
 							<columns>
 								<TableColumn fx:id="EloanUniqueId" prefWidth="134.0"
 									style="-fx-background-color: #ff3737; -fx-font: 15px &quot;Ubuntu Condensed&quot;; -fx-text-fill: white;"
-									text="Loan UniqueId" />
+									text="Credit UniqueId" />
 								<TableColumn fx:id="Esource" prefWidth="139.0"
 									style="-fx-background-color: #ff3737; -fx-font: 15px &quot;Ubuntu Condensed&quot;; -fx-text-fill: white;"
 									text="Source" />
@@ -394,7 +394,7 @@
 									</font>
 								</Button>
 								<TextField fx:id="EtextFieldId"
-									promptText="Enter the Loan Unique id" styleClass="txtfield">
+									promptText="Enter the Credit Unique id" styleClass="txtfield">
 									<font>
 										<Font size="14.0" />
 									</font>
@@ -427,7 +427,7 @@
 							<columns>
 								<TableColumn fx:id="CloanUniqueId" prefWidth="134.0"
 									style="-fx-background-color: #ff3737; -fx-font: 15px &quot;Ubuntu Condensed&quot;; -fx-text-fill: white;"
-									text="Loan UniqueId" />
+									text="Credit UniqueId" />
 								<TableColumn fx:id="Csource" prefWidth="139.0"
 									style="-fx-background-color: #ff3737; -fx-font: 15px &quot;Ubuntu Condensed&quot;; -fx-text-fill: white;"
 									text="Source" />
@@ -485,7 +485,7 @@
 									</font>
 								</Button>
 								<TextField fx:id="CtextFieldId"
-									promptText="Enter the Loan Unique id" styleClass="txtfield">
+									promptText="Enter the Credit Unique id" styleClass="txtfield">
 									<font>
 										<Font size="14.0" />
 									</font>
@@ -534,7 +534,7 @@
 												<TableColumn fx:id="RloanUniqueId"
 													prefWidth="103.0"
 													style="-fx-background-color: #ff3737; -fx-font: 15px &quot;Ubuntu Condensed&quot;; -fx-text-fill: white;"
-													text="Loan UniqueId" />
+													text="Credit UniqueId" />
 												<TableColumn fx:id="Rsource" prefWidth="146.0"
 													style="-fx-background-color: #ff3737; -fx-font: 15px &quot;Ubuntu Condensed&quot;; -fx-text-fill: white;"
 													text="Source" />
@@ -580,7 +580,7 @@
 											<children>
 												<Label alignment="CENTER" prefHeight="67.0"
 													prefWidth="1095.0" style="-fx-background-color: #ff3503;"
-													text="Loan Info">
+													text="Credit Info">
 													<font>
 														<Font name="Ubuntu Condensed" size="29.0" />
 													</font>
@@ -640,7 +640,7 @@
 													alignment="BASELINE_LEFT" contentDisplay="RIGHT"
 													graphicTextGap="5.0" mnemonicParsing="false"
 													onAction="#RloadLoanInfo" prefHeight="72.0"
-													prefWidth="134.0" styleClass="btn" text="Loan Info"
+													prefWidth="134.0" styleClass="btn" text="Credit Info"
 													GridPane.columnIndex="1">
 													<graphic>
 														<FontAwesomeIconView
@@ -729,7 +729,7 @@
 												<TableColumn fx:id="SloanUniqueId"
 													prefWidth="103.0"
 													style="-fx-background-color: #ff3737; -fx-font: 15px &quot;Ubuntu Condensed&quot;; -fx-text-fill: white;"
-													text="Loan UniqueId" />
+													text="Credit UniqueId" />
 												<TableColumn fx:id="Ssource" prefWidth="146.0"
 													style="-fx-background-color: #ff3737; -fx-font: 15px &quot;Ubuntu Condensed&quot;; -fx-text-fill: white;"
 													text="Source" />
@@ -775,7 +775,7 @@
 											<children>
 												<Label alignment="CENTER" prefHeight="67.0"
 													prefWidth="1095.0" style="-fx-background-color: #ff3503;"
-													text="Loan Info">
+													text="Credit Info">
 													<font>
 														<Font name="Ubuntu Condensed" size="29.0" />
 													</font>
@@ -835,7 +835,7 @@
 													alignment="BASELINE_LEFT" contentDisplay="RIGHT"
 													graphicTextGap="5.0" mnemonicParsing="false"
 													onAction="#SloadLoanInfo" prefHeight="72.0"
-													prefWidth="134.0" styleClass="btn" text="Loan Info"
+													prefWidth="134.0" styleClass="btn" text="Credit Info"
 													GridPane.columnIndex="1">
 													<graphic>
 														<FontAwesomeIconView
@@ -941,7 +941,7 @@
 													contentDisplay="RIGHT" graphicTextGap="5.0"
 													mnemonicParsing="false" onAction="#AloadLoanInfo"
 													prefHeight="72.0" prefWidth="134.0" styleClass="btn"
-													text="Loan Info" GridPane.columnIndex="1">
+													text="Credit Info" GridPane.columnIndex="1">
 													<graphic>
 														<FontAwesomeIconView
 															glyphName="ANGLE_DOUBLE_RIGHT" size="25" />
@@ -1010,7 +1010,7 @@
 													styleClass="txtfield" GridPane.columnIndex="1" />
 												<Button graphicTextGap="15.0" mnemonicParsing="false"
 													onAction="#handleAcceptLoan" prefHeight="144.0"
-													prefWidth="307.0" styleClass="btn" text="Accept Loan"
+													prefWidth="307.0" styleClass="btn" text="Accept Credit"
 													textFill="WHITE" GridPane.columnIndex="2">
 													<graphic>
 														<FontAwesomeIconView fill="#e8e3e3"
@@ -1019,7 +1019,7 @@
 												</Button>
 												<Button graphicTextGap="15.0" mnemonicParsing="false"
 													onAction="#handlePredictLoan" prefHeight="150.0"
-													prefWidth="307.0" styleClass="btn" text="Predict Loan"
+													prefWidth="307.0" styleClass="btn" text="Predict Credit"
 													textFill="WHITE" GridPane.columnIndex="4">
 													<graphic>
 														<FontAwesomeIconView fill="WHITE"
@@ -1064,7 +1064,7 @@
 											<children>
 												<Label alignment="CENTER" prefHeight="67.0"
 													prefWidth="1095.0" style="-fx-background-color: #ff3503;"
-													text="Loan Info">
+													text="Credit Info">
 													<font>
 														<Font name="Ubuntu Condensed" size="24.0" />
 													</font>
@@ -1092,7 +1092,7 @@
 												<TableColumn fx:id="AloanUniqueId"
 													prefWidth="103.0"
 													style="-fx-background-color: #ff3737; -fx-font: 15px &quot;Ubuntu Condensed&quot;; -fx-text-fill: white;"
-													text="Loan UniqueId" />
+													text="Credit UniqueId" />
 												<TableColumn fx:id="Asource" prefWidth="146.0"
 													style="-fx-background-color: #ff3737; -fx-font: 15px &quot;Ubuntu Condensed&quot;; -fx-text-fill: white;"
 													text="Source" />
@@ -1145,11 +1145,11 @@
 													promptText="Enter User email" styleClass="txtfield" />
 												<TextField fx:id="txtFieldLoanId"
 													prefHeight="113.0" prefWidth="308.0"
-													promptText="Enter LoanId" styleClass="txtfield"
+													promptText="Enter CreditId" styleClass="txtfield"
 													GridPane.columnIndex="1" />
 												<Button graphicTextGap="15.0" mnemonicParsing="false"
 													onAction="#handleAcceptLoan" prefHeight="117.0"
-													prefWidth="307.0" styleClass="btn" text="Approve Loan"
+													prefWidth="307.0" styleClass="btn" text="Approve Credit"
 													textFill="WHITE" GridPane.columnIndex="2">
 													<graphic>
 														<FontAwesomeIconView fill="WHITE"
@@ -1158,7 +1158,7 @@
 												</Button>
 												<Button graphicTextGap="15.0" mnemonicParsing="false"
 													onAction="#handlePredictLoan" prefHeight="112.0"
-													prefWidth="306.0" styleClass="btn" text="Predict Loan"
+													prefWidth="306.0" styleClass="btn" text="Predict Credit"
 													textFill="WHITE" GridPane.columnIndex="3">
 													<graphic>
 														<FontAwesomeIconView fill="WHITE"
