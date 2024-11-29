@@ -92,6 +92,94 @@ public class Model {
         // Return the first (and only) element of the output layer (single value between 0 and 1)
         return outputLayer[0];
     }
+    public double predictLoanGrade(double[] input) {
+        // Extract variables from the input array
+        double age = input[0];
+        double income = input[1];
+        double homeOwnership = input[2];
+        double empLength = input[3];
+        double loanIntent = input[4];
+        double loanGrade = input[5];
+        double percentIncome = input[6];
+        double defaultOnFile = input[7];
+        double creditHistoryLength = input[8];
+        double loanStatus = input[9];
+
+        // Initialize the score
+        double score = 0.0;
+
+        // Income: Higher income contributes less to the score, making it harder to max out
+        if (income > 150000) {
+            score += 0.3;
+        } else if (income > 80000) {
+            score += 0.2;
+        } else if (income > 50000) {
+            score += 0.1;
+        } else {
+            score += 0.05;
+        }
+
+        // Homeownership: Owning a home is still a strong positive factor, but less impactful
+        if (homeOwnership == 1.0) {
+            score += 0.2;
+        } else if (homeOwnership == 0.5) { // Unknown
+            score += 0.05;
+        }
+
+        // Employment length: Longer employment provides smaller increments
+        if (empLength >= 15) {
+            score += 0.2;
+        } else if (empLength >= 10) {
+            score += 0.15;
+        } else if (empLength >= 5) {
+            score += 0.1;
+        } else {
+            score += 0.05;
+        }
+
+        // Loan intent: Favorable intents contribute less to the score
+        if (loanIntent == 1.0) { // Education
+            score += 0.1;
+        } else if (loanIntent == 2.0 || loanIntent == 3.0) { // Medical or Home Improvement
+            score += 0.05;
+        }
+
+        // Loan grade: Favorable grades have smaller increments
+        if (loanGrade == 1.0) { // Grade A
+            score += 0.2;
+        } else if (loanGrade == 2.0) { // Grade B
+            score += 0.1;
+        } else if (loanGrade == 3.0) { // Grade C
+            score += 0.05;
+        }
+
+        // Percent income: Tighter thresholds make it harder to score high
+        if (percentIncome <= 15) {
+            score += 0.2;
+        } else if (percentIncome <= 30) {
+            score += 0.1;
+        } else if (percentIncome <= 50) {
+            score += 0.05;
+        }
+
+        // Default on file: More severe penalty for a default
+        if (defaultOnFile == 1.0) {
+            score -= 0.5;
+        }
+
+        // Credit history length: Stricter scoring for longer histories
+        if (creditHistoryLength > 15) {
+            score += 0.15;
+        } else if (creditHistoryLength > 10) {
+            score += 0.1;
+        } else if (creditHistoryLength > 5) {
+            score += 0.05;
+        }
+
+        // Normalize score to return a value between 0 and 1
+        return Math.max(0.0, Math.min(1.0, score));
+    }
+
 
     // Train the model with gradient descent
     public void train(double[][] xTrain, double[] yTrain, int epochs, double learningRate) {

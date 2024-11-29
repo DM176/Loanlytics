@@ -85,12 +85,15 @@ public class LoanManager {
 		request.setCreditHistoryLength(user.getCreditScore());
 		predictionService.makePrediction(request);
 		double prediction = predictionService.makePrediction(request);
-		if(prediction==1 ){
-			dao.updateLoanStatus(user, loan, date, time, LoanStatus.CAN_BE_APPROVED);
-		} else {
-			dao.updateLoanStatus(user, loan, date, time, LoanStatus.SHOULD_BE_REJECTED);
+		String res = "Unable to evaluate prediction at this time";
+		if(prediction<=0.3 ){
+			res = LoanStatus.HIGH_RISK_LOAN;
+		} else if(prediction>=0.3 & prediction<=0.7 ){
+			res = LoanStatus.MEDIUM_RISK_LOAN;
+		} else if(prediction>0.7 ){
+			res = LoanStatus.LOW_RISK_LOAN;
 		}
-		String res = "Prediction: " + (prediction>0.18 ? "Loan Approved" : "Loan Denied");
+
 		return res;
 
 	}

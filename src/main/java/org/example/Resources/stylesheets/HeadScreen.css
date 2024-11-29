@@ -9,7 +9,7 @@
 	-fx-text-fill:	#ffffff;
 }
 .pane{
-	-fx-background-color:#ff3838;
+	-fx-background-color:#399997;
 }
 .imgbtn:hover {
 	-fx-effect: dropshadow( one-pass-box , #333333 , 8 , 0.0 , 2 , 0 );

@@ -90,6 +90,6 @@ public class PredictionService {
                 request.getLoanStatus()
         };
 
-        return model.predict(features);
+        return model.predictLoanGrade(features);
     }
 }

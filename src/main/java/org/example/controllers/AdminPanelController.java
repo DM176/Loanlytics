@@ -752,32 +752,33 @@ public class AdminPanelController implements Initializable {
 
 		String email = txtEmailField.getText();
 		int loanId = Integer.parseInt(txtLoanId.getText());
-
+		boolean loanFound = false;
 		try {
 			User user = UserManager.getInstance().getUser(email);
 			Loan loan = LoanManager.getInstance().getLoan(loanId);
 			UserLoanDTO[] userloans = LoanManager.getInstance().getUserLoans();
 
 			for (UserLoanDTO userloan : userloans) {
-				if (user.getEmail().equals(userloan.getUserEmail()) && (loan.getId() == userloan.getLoanId())
-						&& userloan.getStatus().equals(LoanStatus.UNKNOWN)) {
+				if (user.getEmail().equals(userloan.getUserEmail()) && (loan.getId() == userloan.getLoanId())) {
 					String result = adminDTO.predictLoan(user, loan);
 					txtEmailField.clear();
 					txtLoanId.clear();
 					txtEmailField.setPromptText("Enter user email");
 					txtLoanId.setPromptText("Enter loan id");
 					resultField.setText(result);
-				} else {
-					txtEmailField.clear();
-					txtLoanId.clear();
-					txtEmailField.setPromptText("Enter user email");
-					txtLoanId.setPromptText("Enter loan id");
-					resultField.setText("Invalid Details");
+					loanFound = true;
 				}
 
 			}
 
 		} catch (SQLException e) {
+			txtEmailField.clear();
+			txtLoanId.clear();
+			txtEmailField.setPromptText("Enter user email");
+			txtLoanId.setPromptText("Enter loan id");
+			resultField.setText("Invalid Details");
+		}
+		if(!loanFound) {
 			txtEmailField.clear();
 			txtLoanId.clear();
 			txtEmailField.setPromptText("Enter user email");

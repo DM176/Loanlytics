@@ -27,8 +27,8 @@ public class Main {
         LoanPredictionRequest request = new LoanPredictionRequest();
 
         // Set input features for a loan prediction request
-        request.setAge(40);  // Normalized if necessary
-        request.setIncome(5000000);  // Normalize if necessary
+        request.setAge(50);  // Normalized if necessary
+        request.setIncome(5000);  // Normalize if necessary
         request.setHomeOwnership("OWN");  // Encoded to 1
         request.setEmpLength(5);  // Encoded if necessary
         request.setLoanIntent("BUSINESS");  // Encoded to 1
@@ -40,7 +40,5 @@ public class Main {
         double prediction = predictionService.makePrediction(request);
         System.out.println("Prediction: " + prediction);
 
-        // Use a different threshold if needed
-        System.out.println("Prediction: " + (prediction >0.18 ? "Loan Approved" : "Loan Denied"));
     }
 }
